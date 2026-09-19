@@ -107,11 +107,14 @@
     </div>
 <script>
 function enterSky() {
-    document.querySelector(".welcome").style.opacity = "0";
+    const welcome = document.querySelector(".welcome");
+
+    welcome.style.transition = "opacity 5s ease";
+    welcome.style.opacity = "0";
 
     setTimeout(function() {
-        document.querySelector(".welcome").style.display = "none";
-    }, 2000);
+        welcome.style.display = "none";
+    }, 5000);
 }
 </script>
 </body>
