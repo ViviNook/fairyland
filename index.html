@@ -95,11 +95,16 @@ background: radial-gradient(
 @keyframes whoosh {
     0% {
         transform: translateX(0) rotate(0deg);
+        opacity: 1;
     }
 
     100% {
-        transform: translateX(120vw) rotate(15deg);
+        transform: translateX(120vw) rotate(8deg);
+        opacity: 0;
     }
+}
+        .wind-title span {
+    display: inline-block;
 }
         @keyframes breathe {
     0%, 100% {
