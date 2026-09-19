@@ -140,6 +140,11 @@ background: radial-gradient(
 <script>
 function enterSky() {
     const welcome = document.querySelector(".welcome");
+    const wind = document.getElementById("windSound");
+
+    wind.currentTime = 0;
+    wind.play();
+
     welcome.style.animation = "whoosh 1.5s ease-in forwards";
 }
 </script>
