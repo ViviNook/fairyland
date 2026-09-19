@@ -105,7 +105,11 @@
     </div>
 <script>
 function enterSky() {
-    alert("The sky is waiting for you... ☁️");
+    document.querySelector(".welcome").style.opacity = "0";
+
+    setTimeout(function() {
+        document.querySelector(".welcome").style.display = "none";
+    }, 2000);
 }
 </script>
 </body>
