@@ -109,13 +109,13 @@
 function enterSky() {
     const welcome = document.querySelector(".welcome");
 
-    welcome.style.transition = "transform 1.5s cubic-bezier(.7,-0.2,1,.5), opacity 1.2s ease";
-    welcome.style.transform = "translateX(120vw) rotate(8deg)";
-    welcome.style.opacity = "0";
+    welcome.style.animation = "none";
+    welcome.style.transition = "transform 1.2s cubic-bezier(.5,-0.4,1,.7)";
+    welcome.style.transform = "translateX(120vw) rotate(12deg)";
 
     setTimeout(function() {
         welcome.style.display = "none";
-    }, 1500);
+    }, 1200);
 }
 </script>
 </body>
