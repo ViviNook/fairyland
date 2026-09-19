@@ -127,6 +127,22 @@ background: radial-gradient(
 .wind-title span:nth-child(14) { --i: 13; }
 .wind-title span:nth-child(15) { --i: 14; }
 .wind-title span:nth-child(16) { --i: 15; }
+        .wind-title span:nth-child(1)  { --wind-x: 115vw; --wind-y: -8vh;  --wind-rotate: 28deg; --wind-skew: 14deg; }
+.wind-title span:nth-child(2)  { --wind-x: 125vw; --wind-y: 4vh;   --wind-rotate: 18deg; --wind-skew: 10deg; }
+.wind-title span:nth-child(3)  { --wind-x: 110vw; --wind-y: -16vh; --wind-rotate: 35deg; --wind-skew: 18deg; }
+.wind-title span:nth-child(4)  { --wind-x: 130vw; --wind-y: 10vh;  --wind-rotate: 22deg; --wind-skew: 12deg; }
+.wind-title span:nth-child(5)  { --wind-x: 118vw; --wind-y: -5vh;  --wind-rotate: 40deg; --wind-skew: 20deg; }
+.wind-title span:nth-child(6)  { --wind-x: 135vw; --wind-y: -13vh; --wind-rotate: 25deg; --wind-skew: 15deg; }
+.wind-title span:nth-child(7)  { --wind-x: 112vw; --wind-y: 7vh;   --wind-rotate: 32deg; --wind-skew: 11deg; }
+.wind-title span:nth-child(8)  { --wind-x: 128vw; --wind-y: -10vh; --wind-rotate: 20deg; --wind-skew: 17deg; }
+.wind-title span:nth-child(9)  { --wind-x: 120vw; --wind-y: 12vh;  --wind-rotate: 38deg; --wind-skew: 13deg; }
+.wind-title span:nth-child(10) { --wind-x: 132vw; --wind-y: -7vh;  --wind-rotate: 24deg; --wind-skew: 19deg; }
+.wind-title span:nth-child(11) { --wind-x: 115vw; --wind-y: -14vh; --wind-rotate: 34deg; --wind-skew: 15deg; }
+.wind-title span:nth-child(12) { --wind-x: 138vw; --wind-y: 5vh;   --wind-rotate: 27deg; --wind-skew: 12deg; }
+.wind-title span:nth-child(13) { --wind-x: 122vw; --wind-y: -9vh;  --wind-rotate: 42deg; --wind-skew: 21deg; }
+.wind-title span:nth-child(14) { --wind-x: 130vw; --wind-y: 8vh;   --wind-rotate: 30deg; --wind-skew: 16deg; }
+.wind-title span:nth-child(15) { --wind-x: 118vw; --wind-y: -12vh; --wind-rotate: 36deg; --wind-skew: 14deg; }
+.wind-title span:nth-child(16) { --wind-x: 140vw; --wind-y: 3vh;   --wind-rotate: 26deg; --wind-skew: 18deg; }
 
 @keyframes letterWind {
     0% {
@@ -134,13 +150,20 @@ background: radial-gradient(
         opacity: 1;
     }
 
-    35% {
+    30% {
         transform: translate(-4px, -3px) rotate(-5deg) skewX(-4deg);
         opacity: 1;
     }
 
+    65% {
+        transform: translate(25vw, -3vh) rotate(10deg) skewX(6deg);
+        opacity: 0.9;
+    }
+
     100% {
-        transform: translate(120vw, -10vh) rotate(25deg) skewX(12deg);
+        transform: translate(var(--wind-x), var(--wind-y))
+                   rotate(var(--wind-rotate))
+                   skewX(var(--wind-skew));
         opacity: 0;
     }
 }
