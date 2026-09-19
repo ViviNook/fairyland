@@ -107,9 +107,26 @@ background: radial-gradient(
     display: inline-block;
     transform-origin: center bottom;
 }
-      .wind-blown .wind-title span {
+    .wind-blown .wind-title span {
     animation: letterWind 1.5s ease-in forwards;
+    animation-delay: calc(var(--i) * 0.04s);
 }
+        .wind-title span:nth-child(1) { --i: 0; }
+.wind-title span:nth-child(2) { --i: 1; }
+.wind-title span:nth-child(3) { --i: 2; }
+.wind-title span:nth-child(4) { --i: 3; }
+.wind-title span:nth-child(5) { --i: 4; }
+.wind-title span:nth-child(6) { --i: 5; }
+.wind-title span:nth-child(7) { --i: 6; }
+.wind-title span:nth-child(8) { --i: 7; }
+.wind-title span:nth-child(9) { --i: 8; }
+.wind-title span:nth-child(10) { --i: 9; }
+.wind-title span:nth-child(11) { --i: 10; }
+.wind-title span:nth-child(12) { --i: 11; }
+.wind-title span:nth-child(13) { --i: 12; }
+.wind-title span:nth-child(14) { --i: 13; }
+.wind-title span:nth-child(15) { --i: 14; }
+.wind-title span:nth-child(16) { --i: 15; }
 
 @keyframes letterWind {
     0% {
