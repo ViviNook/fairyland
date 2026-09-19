@@ -1,16 +1,109 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>The Dreaming Sky</title>
+
+    <style>
+        html, body {
+            margin: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        body {
+            background: linear-gradient(
+                180deg,
+                #18213d 0%,
+                #394b70 45%,
+                #8da0bd 100%
+            );
+
+            color: white;
+            font-family: Georgia, serif;
+        }
+
+        .welcome {
+            height: 100vh;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            text-align: center;
+
+            animation: breathe 6s ease-in-out infinite;
+        }
+
+        h1 {
+            font-size: 48px;
+            font-weight: normal;
+            letter-spacing: 6px;
+            margin: 0 0 20px;
+        }
+
+        p {
+            font-size: 18px;
+            line-height: 1.8;
+            opacity: 0.8;
+        }
+
+        .enter {
+            margin-top: 25px;
+
+            padding: 13px 28px;
+
+            border: 1px solid rgba(255,255,255,0.5);
+            border-radius: 30px;
+
+            background: rgba(255,255,255,0.08);
+
+            color: white;
+
+            font-family: Georgia, serif;
+            font-size: 15px;
+
+            cursor: pointer;
+        }
+
+        .enter:hover {
+            background: rgba(255,255,255,0.18);
+        }
+
+        @keyframes breathe {
+            0%, 100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-8px);
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-    <h1>WELCOME, DREAMER.</h1>
+    <div class="welcome">
 
-    <p>
-        There are stories hiding in the sky.
-    </p>
+        <h1>WELCOME, DREAMER.</h1>
+
+        <p>
+            There are stories hiding in the sky.<br>
+            Wander softly. Look closely.
+        </p>
+
+        <button class="enter">
+            ENTER THE SKY ☁
+        </button>
+
+    </div>
 
 </body>
+
 </html>
