@@ -75,7 +75,15 @@
         .enter:hover {
             background: rgba(255,255,255,0.18);
         }
+@keyframes whoosh {
+    0% {
+        transform: translateX(0) rotate(0deg);
+    }
 
+    100% {
+        transform: translateX(120vw) rotate(15deg);
+    }
+}
         @keyframes breathe {
             0%, 100% {
                 transform: translateY(0);
