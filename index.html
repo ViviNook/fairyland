@@ -28,7 +28,20 @@ background: radial-gradient(
     font-family: Georgia, serif;
 }
 
-   
+   body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+
+    background-image:
+        radial-gradient(circle, rgba(255,255,255,0.8) 1px, transparent 1px),
+        radial-gradient(circle, rgba(255,255,255,0.55) 1px, transparent 1px),
+        radial-gradient(circle, rgba(255,255,255,0.7) 1px, transparent 1px);
+
+    background-size: 170px 190px, 230px 260px, 310px 280px;
+    background-position: 20px 30px, 90px 120px, 170px 60px;
+}
      
      
      .welcome {
