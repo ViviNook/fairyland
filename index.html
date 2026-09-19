@@ -116,15 +116,7 @@
 <script>
 function enterSky() {
     const welcome = document.querySelector(".welcome");
-
-    welcome.style.animation = "none";
-    welcome.style.opacity = "1";
-    welcome.style.transition = "transform 1.4s ease-in";
-    welcome.style.transform = "translateX(120vw) rotate(15deg)";
-
-    setTimeout(function() {
-        welcome.style.display = "none";
-    }, 1400);
+    welcome.style.animation = "whoosh 1.5s ease-in forwards";
 }
 </script>
 </body>
