@@ -166,7 +166,7 @@ function enterSky() {
     wind.currentTime = 0;
 wind.play().catch(error => console.log(error));
 
-    welcome.style.animation = "whoosh 1.5s ease-in forwards";
+    welcome.classList.add("wind-blown");
 }
 </script>
 </body>
