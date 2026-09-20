@@ -270,22 +270,30 @@
            EVERYTHING LEAVES AS ONE ENTITY
            ===================================================== */
 
-        .wind-title,
-        .wind-subtitle,
-        .enter {
-            transform-origin: left center;
-        }
-
+       
 .wind-blown .wind-title,
 .wind-blown .wind-subtitle,
 .wind-blown .enter {
-    animation:
-        carpetWind
-        1.8s
-        cubic-bezier(0.16, 1, 0.3, 1)
-        forwards;
+    animation: yeetSideways 1.15s cubic-bezier(0.65, 0, 1, 0.4) forwards;
 }
 
+@keyframes yeetSideways {
+
+    0% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+
+    55% {
+        transform: translateX(35vw);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateX(130vw);
+        opacity: 0;
+    }
+}
         /* =====================================================
            MAGIC CARPET / STIFF SHEET MOTION
 
@@ -296,81 +304,7 @@
 
        
         
-              @keyframes carpetWind {
-
-    0% {
-        transform:
-            perspective(1400px)
-            translate3d(0, 0, 0)
-            rotateY(0deg)
-            rotateX(0deg)
-            skewX(0deg)
-            scale(1);
-
-        opacity: 1;
-    }
-
-    25% {
-        transform:
-            perspective(1400px)
-            translate3d(8vw, -1vh, 0)
-            rotateY(-7deg)
-            rotateX(1deg)
-            skewX(-1deg)
-            scale(1.01);
-
-        opacity: 1;
-    }
-
-    50% {
-        transform:
-            perspective(1400px)
-            translate3d(32vw, -2vh, 0)
-            rotateY(-18deg)
-            rotateX(2deg)
-            skewX(-2deg)
-            scale(1.025);
-
-        opacity: 0.98;
-    }
-
-    70% {
-        transform:
-            perspective(1400px)
-            translate3d(65vw, -3vh, 0)
-            rotateY(-35deg)
-            rotateX(2deg)
-            skewX(-3deg)
-            scale(1.04);
-
-        opacity: 0.8;
-    }
-
-    85% {
-        transform:
-            perspective(1400px)
-            translate3d(95vw, -2vh, 0)
-            rotateY(-55deg)
-            rotateX(1deg)
-            skewX(-2deg)
-            scale(1.06);
-
-        opacity: 0.45;
-    }
-
-    100% {
-        transform:
-            perspective(1400px)
-            translate3d(135vw, 0, 0)
-            rotateY(-75deg)
-            rotateX(0deg)
-            skewX(0deg)
-            scale(1.08);
-
-        opacity: 0;
-    }
-}
-
+          
         /* =====================================================
            GENTLE BREATHING
            ===================================================== */
