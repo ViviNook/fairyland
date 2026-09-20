@@ -2,7 +2,6 @@
 <html lang="en">
 
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -35,7 +34,6 @@ body {
 }
 
 body {
-
     background:
         radial-gradient(
             ellipse at center,
@@ -59,27 +57,21 @@ body {
    ========================================================= */
 
 .sky {
-
     position: relative;
-
     width: 100%;
     height: 100vh;
-
     overflow: hidden;
-
 }
 
 
 /* =========================================================
-   STARS
+   DENSE STAR FIELD
    ========================================================= */
 
 .sky::before {
-
     content: "";
 
     position: absolute;
-
     inset: 0;
 
     pointer-events: none;
@@ -123,7 +115,6 @@ body {
         );
 
     background-size:
-
         71px 79px,
         107px 119px,
         149px 163px,
@@ -132,7 +123,6 @@ body {
         317px 337px;
 
     background-position:
-
         17px 23px,
         43px 71px,
         89px 31px,
@@ -143,58 +133,63 @@ body {
     opacity: .94;
 
     z-index: 1;
-
 }
 
 
 /* =========================================================
-   TEAL AURORA — EDGES
+   STRONGER TEAL AURORA AROUND EDGES
    ========================================================= */
 
 .sky::after {
-
     content: "";
 
     position: absolute;
 
-    inset: -20%;
+    inset: -15%;
 
     pointer-events: none;
 
     background:
 
+        /* LEFT EDGE */
         radial-gradient(
-            ellipse at -3% 45%,
-            rgba(37,211,206,.30),
-            rgba(24,175,185,.17) 14%,
-            rgba(20,140,170,.08) 27%,
-            transparent 44%
+            ellipse at -1% 50%,
+            rgba(31, 239, 224, .52) 0%,
+            rgba(26, 213, 213, .38) 9%,
+            rgba(21, 183, 196, .24) 19%,
+            rgba(20, 150, 180, .12) 31%,
+            transparent 46%
         ),
 
+        /* RIGHT EDGE */
         radial-gradient(
-            ellipse at 103% 52%,
-            rgba(53,216,209,.27),
-            rgba(30,174,190,.15) 14%,
-            rgba(20,120,170,.07) 29%,
+            ellipse at 101% 50%,
+            rgba(46, 238, 222, .50) 0%,
+            rgba(30, 211, 211, .36) 9%,
+            rgba(25, 178, 196, .23) 19%,
+            rgba(20, 145, 180, .11) 31%,
+            transparent 46%
+        ),
+
+        /* TOP EDGE */
+        radial-gradient(
+            ellipse at 50% -5%,
+            rgba(38, 216, 218, .24) 0%,
+            rgba(30, 183, 200, .12) 22%,
             transparent 45%
         ),
 
-        radial-gradient(
-            ellipse at 50% -5%,
-            rgba(40,190,210,.10),
-            transparent 40%
-        ),
-
+        /* BOTTOM EDGE */
         radial-gradient(
             ellipse at 50% 105%,
-            rgba(25,155,180,.08),
-            transparent 40%
+            rgba(28, 201, 204, .22) 0%,
+            rgba(24, 164, 187, .11) 23%,
+            transparent 45%
         );
 
-    filter: blur(22px);
+    filter: blur(18px);
 
     z-index: 2;
-
 }
 
 
@@ -203,558 +198,325 @@ body {
    ========================================================= */
 
 .clouds {
-
     position: absolute;
-
     inset: 0;
 
     pointer-events: none;
 
     z-index: 5;
-
 }
 
 
 /* =========================================================
-   NORMAL CLOUD IMAGES
+   EVERY CLOUD
    ========================================================= */
 
 .cloud {
-
     position: absolute;
-
-    display: block;
 
     height: auto;
 
-    pointer-events: none;
+    display: block;
 
+    pointer-events: none;
     user-select: none;
 
     will-change: transform;
 
+    object-fit: contain;
 }
 
 
 /* =========================================================
-   CLOUD FROM ASSET 1
+   CLOUD 1 — LARGE TOP LEFT
    ========================================================= */
 
-.cloud-a {
+.cloud-1 {
+    width: 410px;
 
-    width: 650px;
+    left: -115px;
+    top: -70px;
 
-    left: -270px;
-
-    top: -95px;
-
-    opacity: .90;
-
-    filter:
-        drop-shadow(
-            0 15px 25px rgba(0,0,0,.10)
-        );
+    opacity: .62;
 
     animation:
-        driftA
-        17s
-        ease-in-out
-        infinite;
-
-}
-
-
-/* =========================================================
-   CLOUD FROM ASSET 2
-   ========================================================= */
-
-.cloud-b {
-
-    width: 430px;
-
-    right: -170px;
-
-    bottom: -100px;
-
-    opacity: .58;
-
-    filter:
-        blur(.7px)
-        drop-shadow(
-            0 12px 20px rgba(0,0,0,.10)
-        );
-
-    animation:
-        driftB
+        cloudFloat1
         21s
         ease-in-out
         infinite;
-
 }
 
 
 /* =========================================================
-   SPRITE CLOUDS
-   ---------------------------------------------------------
-   The third PNG contains 8 separate clouds arranged
-   in 2 columns × 4 rows.
-
-   Each element below displays ONLY ONE quadrant.
+   CLOUD 2 — HIGH RIGHT
    ========================================================= */
 
-.sprite-cloud {
+.cloud-2 {
+    width: 330px;
 
-    position: absolute;
-
-    width: 470px;
-
-    aspect-ratio: 2 / 1;
-
-    background-image:
-        url("placidplace-sky-7296025.png");
-
-    background-repeat: no-repeat;
-
-    /*
-       The original image is 2 columns × 4 rows.
-       200% width = each column
-       400% height = each row
-    */
-
-    background-size:
-        200% 400%;
-
-    pointer-events: none;
-
-    user-select: none;
-
-    will-change: transform;
-
-}
-
-
-/* =========================================================
-   ROW 1 — LEFT CLOUD
-   ========================================================= */
-
-.sprite-1 {
-
-    left: -175px;
-
-    top: 10%;
+    right: -70px;
+    top: 5%;
 
     opacity: .48;
 
-    background-position:
-        0% 0%;
-
-    transform:
-        scale(.92);
-
     animation:
-        spriteFloat1
-        24s
-        ease-in-out
-        infinite;
-
-}
-
-
-/* =========================================================
-   ROW 1 — RIGHT CLOUD
-   ========================================================= */
-
-.sprite-2 {
-
-    right: -220px;
-
-    top: -3%;
-
-    opacity: .52;
-
-    background-position:
-        100% 0%;
-
-    transform:
-        scale(.88);
-
-    animation:
-        spriteFloat2
-        27s
-        ease-in-out
-        infinite;
-
-}
-
-
-/* =========================================================
-   ROW 2 — LEFT CLOUD
-   ========================================================= */
-
-.sprite-3 {
-
-    left: -190px;
-
-    top: 31%;
-
-    opacity: .36;
-
-    background-position:
-        0% 50%;
-
-    transform:
-        scale(.75);
-
-    animation:
-        spriteFloat3
-        29s
-        ease-in-out
-        infinite;
-
-}
-
-
-/* =========================================================
-   ROW 2 — RIGHT CLOUD
-   ========================================================= */
-
-.sprite-4 {
-
-    right: -175px;
-
-    top: 23%;
-
-    opacity: .42;
-
-    background-position:
-        100% 50%;
-
-    transform:
-        scale(.80);
-
-    animation:
-        spriteFloat4
+        cloudFloat2
         25s
         ease-in-out
         infinite;
-
 }
 
 
 /* =========================================================
-   ROW 3 — LEFT CLOUD
+   CLOUD 3 — LEFT SIDE
    ========================================================= */
 
-.sprite-5 {
+.cloud-3 {
+    width: 260px;
 
-    left: 8%;
-
-    bottom: -100px;
-
-    opacity: .45;
-
-    background-position:
-        0% 66.666%;
-
-    transform:
-        scale(.82);
-
-    animation:
-        spriteFloat5
-        30s
-        ease-in-out
-        infinite;
-
-}
-
-
-/* =========================================================
-   ROW 3 — RIGHT CLOUD
-   ========================================================= */
-
-.sprite-6 {
-
-    right: -130px;
-
-    bottom: 12%;
-
-    opacity: .31;
-
-    background-position:
-        100% 66.666%;
-
-    transform:
-        scale(.72);
-
-    animation:
-        spriteFloat6
-        26s
-        ease-in-out
-        infinite;
-
-}
-
-
-/* =========================================================
-   ROW 4 — LEFT CLOUD
-   ========================================================= */
-
-.sprite-7 {
-
-    left: 25%;
-
-    bottom: -145px;
+    left: -75px;
+    top: 28%;
 
     opacity: .40;
 
-    background-position:
-        0% 100%;
-
-    transform:
-        scale(.68);
-
     animation:
-        spriteFloat7
-        32s
+        cloudFloat3
+        27s
         ease-in-out
         infinite;
-
 }
 
 
 /* =========================================================
-   ROW 4 — RIGHT CLOUD
+   CLOUD 4 — RIGHT SIDE, HIGHER
    ========================================================= */
 
-.sprite-8 {
+.cloud-4 {
+    width: 300px;
 
-    right: 15%;
+    right: -90px;
+    top: 32%;
 
-    bottom: -125px;
-
-    opacity: .34;
-
-    background-position:
-        100% 100%;
-
-    transform:
-        scale(.63);
+    opacity: .42;
 
     animation:
-        spriteFloat8
+        cloudFloat4
+        23s
+        ease-in-out
+        infinite;
+}
+
+
+/* =========================================================
+   CLOUD 5 — LOWER LEFT
+   ========================================================= */
+
+.cloud-5 {
+    width: 340px;
+
+    left: -95px;
+    bottom: 8%;
+
+    opacity: .48;
+
+    animation:
+        cloudFloat5
+        29s
+        ease-in-out
+        infinite;
+}
+
+
+/* =========================================================
+   CLOUD 6 — LOWER RIGHT
+   ========================================================= */
+
+.cloud-6 {
+    width: 270px;
+
+    right: -65px;
+    bottom: 21%;
+
+    opacity: .36;
+
+    animation:
+        cloudFloat6
+        26s
+        ease-in-out
+        infinite;
+}
+
+
+/* =========================================================
+   CLOUD 7 — BOTTOM, SLIGHTLY LEFT OF CENTER
+   ========================================================= */
+
+.cloud-7 {
+    width: 390px;
+
+    left: 17%;
+    bottom: -120px;
+
+    opacity: .46;
+
+    animation:
+        cloudFloat7
+        31s
+        ease-in-out
+        infinite;
+}
+
+
+/* =========================================================
+   CLOUD 8 — BOTTOM RIGHT / CORNER
+   ========================================================= */
+
+.cloud-8 {
+    width: 350px;
+
+    right: 11%;
+    bottom: -105px;
+
+    opacity: .40;
+
+    animation:
+        cloudFloat8
         28s
         ease-in-out
         infinite;
-
 }
 
 
 /* =========================================================
-   SPECIAL CLOUD BEHIND THE TITLE
-   ---------------------------------------------------------
-   Small, faded, offset to the right.
-   It passes behind the atmosphere of the title without
-   sitting directly underneath it.
+   SMALL ATMOSPHERIC CLOUD BEHIND TEXT
    ========================================================= */
 
-.sprite-behind {
+.cloud-behind {
+    width: 205px;
 
-    width: 285px;
+    left: 59%;
+    top: 40%;
 
-    aspect-ratio: 2 / 1;
-
-    left: 58%;
-
-    top: 38%;
-
-    opacity: .14;
-
-    background-position:
-        100% 66.666%;
+    opacity: .13;
 
     filter:
-        saturate(.25)
-        blur(1px);
+        saturate(.20)
+        brightness(.90)
+        blur(.8px);
 
     z-index: 7;
 
     animation:
-        behindFloat
+        cloudBehind
         18s
         ease-in-out
         infinite;
-
 }
 
 
 /* =========================================================
-   CLOUD MOTION
+   CLOUD FLOATING
    ========================================================= */
 
-@keyframes driftA {
+@keyframes cloudFloat1 {
 
-    0%,
-    100% {
-        transform:
-            translate3d(0, 0, 0);
+    0%, 100% {
+        transform: translate3d(0, 0, 0);
     }
 
     50% {
-        transform:
-            translate3d(28px, -13px, 0);
+        transform: translate3d(25px, 13px, 0);
     }
-
 }
 
 
-@keyframes driftB {
+@keyframes cloudFloat2 {
 
-    0%,
-    100% {
-        transform:
-            translate3d(0, 0, 0);
+    0%, 100% {
+        transform: translate3d(0, 0, 0);
     }
 
     50% {
-        transform:
-            translate3d(-24px, -11px, 0);
+        transform: translate3d(-23px, 18px, 0);
     }
-
 }
 
 
-@keyframes spriteFloat1 {
+@keyframes cloudFloat3 {
 
-    0%,
-    100% {
-        margin-left: 0;
-        margin-top: 0;
+    0%, 100% {
+        transform: translate3d(0, 0, 0);
     }
 
     50% {
-        margin-left: 25px;
-        margin-top: -12px;
+        transform: translate3d(18px, -12px, 0);
     }
-
 }
 
 
-@keyframes spriteFloat2 {
+@keyframes cloudFloat4 {
 
-    0%,
-    100% {
-        margin-left: 0;
-        margin-top: 0;
+    0%, 100% {
+        transform: translate3d(0, 0, 0);
     }
 
     50% {
-        margin-left: -22px;
-        margin-top: 14px;
+        transform: translate3d(-27px, 9px, 0);
     }
-
 }
 
 
-@keyframes spriteFloat3 {
+@keyframes cloudFloat5 {
 
-    0%,
-    100% {
-        margin-left: 0;
-        margin-top: 0;
+    0%, 100% {
+        transform: translate3d(0, 0, 0);
     }
 
     50% {
-        margin-left: 17px;
-        margin-top: -9px;
+        transform: translate3d(26px, -14px, 0);
     }
-
 }
 
 
-@keyframes spriteFloat4 {
+@keyframes cloudFloat6 {
 
-    0%,
-    100% {
-        margin-left: 0;
-        margin-top: 0;
+    0%, 100% {
+        transform: translate3d(0, 0, 0);
     }
 
     50% {
-        margin-left: -27px;
-        margin-top: -7px;
+        transform: translate3d(-21px, -11px, 0);
     }
-
 }
 
 
-@keyframes spriteFloat5 {
+@keyframes cloudFloat7 {
 
-    0%,
-    100% {
-        margin-left: 0;
-        margin-top: 0;
+    0%, 100% {
+        transform: translate3d(0, 0, 0);
     }
 
     50% {
-        margin-left: 23px;
-        margin-top: -15px;
+        transform: translate3d(22px, -15px, 0);
     }
-
 }
 
 
-@keyframes spriteFloat6 {
+@keyframes cloudFloat8 {
 
-    0%,
-    100% {
-        margin-left: 0;
-        margin-top: 0;
+    0%, 100% {
+        transform: translate3d(0, 0, 0);
     }
 
     50% {
-        margin-left: -20px;
-        margin-top: 12px;
+        transform: translate3d(-19px, -12px, 0);
     }
-
 }
 
 
-@keyframes spriteFloat7 {
+@keyframes cloudBehind {
 
-    0%,
-    100% {
-        margin-left: 0;
-        margin-top: 0;
-    }
-
-    50% {
-        margin-left: 15px;
-        margin-top: -10px;
-    }
-
-}
-
-
-@keyframes spriteFloat8 {
-
-    0%,
-    100% {
-        margin-left: 0;
-        margin-top: 0;
-    }
-
-    50% {
-        margin-left: -18px;
-        margin-top: -13px;
-    }
-
-}
-
-
-@keyframes behindFloat {
-
-    0%,
-    100% {
+    0%, 100% {
         transform:
             translate3d(0, 0, 0)
             rotate(-2deg);
@@ -762,10 +524,9 @@ body {
 
     50% {
         transform:
-            translate3d(-25px, -18px, 0)
+            translate3d(-24px, -15px, 0)
             rotate(2deg);
     }
-
 }
 
 
@@ -786,17 +547,11 @@ body {
 
     z-index: 10;
 
-    /*
-       Noticeable floating:
-       7px → 18px rather than barely moving.
-    */
-
     animation:
         dreamFloat
         6s
         ease-in-out
         infinite;
-
 }
 
 
@@ -818,11 +573,8 @@ body {
     color: #fffaf0;
 
     text-shadow:
-
-        0 0 18px rgba(255,255,255,.13),
-
-        0 0 40px rgba(170,210,255,.10);
-
+        0 0 18px rgba(255,255,255,.14),
+        0 0 40px rgba(170,210,255,.11);
 }
 
 
@@ -844,7 +596,6 @@ body {
     color: #fffaf0;
 
     opacity: .80;
-
 }
 
 
@@ -897,7 +648,6 @@ body {
         background .4s ease,
         box-shadow .4s ease,
         transform .4s ease;
-
 }
 
 
@@ -911,40 +661,32 @@ body {
 
     transform:
         translateY(-2px);
-
 }
 
 
 /* =========================================================
-   MORE OBVIOUS DREAM FLOAT
+   NOTICEABLE TEXT FLOAT
    ========================================================= */
 
 @keyframes dreamFloat {
 
     0% {
-
         transform:
             translate(-50%, -50%)
-            translateY(8px);
-
+            translateY(9px);
     }
 
     50% {
-
         transform:
             translate(-50%, -50%)
-            translateY(-10px);
-
+            translateY(-11px);
     }
 
     100% {
-
         transform:
             translate(-50%, -50%)
-            translateY(8px);
-
+            translateY(9px);
     }
-
 }
 
 
@@ -954,98 +696,72 @@ body {
 
 @media (max-width: 700px) {
 
-    .cloud-a {
-
-        width: 500px;
-
-        left: -250px;
-
+    .cloud-1 {
+        width: 300px;
+        left: -105px;
+        top: -40px;
     }
 
-    .cloud-b {
-
-        width: 340px;
-
-        right: -180px;
-
+    .cloud-2 {
+        width: 245px;
+        right: -70px;
+        top: 3%;
     }
 
-    .sprite-cloud {
-
-        width: 350px;
-
+    .cloud-3 {
+        width: 200px;
+        left: -80px;
+        top: 27%;
     }
 
-    .sprite-1 {
-        left: -170px;
-        top: 7%;
-    }
-
-    .sprite-2 {
-        right: -190px;
-        top: 1%;
-    }
-
-    .sprite-3 {
-        left: -170px;
-        top: 32%;
-    }
-
-    .sprite-4 {
-        right: -170px;
-        top: 25%;
-    }
-
-    .sprite-5 {
-        left: -40px;
-        bottom: -80px;
-    }
-
-    .sprite-6 {
-        right: -130px;
-        bottom: 11%;
-    }
-
-    .sprite-7 {
-        left: 8%;
-        bottom: -110px;
-    }
-
-    .sprite-8 {
-        right: -40px;
-        bottom: -100px;
-    }
-
-    .sprite-behind {
-
+    .cloud-4 {
         width: 220px;
+        right: -70px;
+        top: 31%;
+    }
 
-        left: 56%;
+    .cloud-5 {
+        width: 260px;
+        left: -95px;
+        bottom: 8%;
+    }
 
-        top: 39%;
+    .cloud-6 {
+        width: 205px;
+        right: -60px;
+        bottom: 20%;
+    }
 
+    .cloud-7 {
+        width: 290px;
+        left: 4%;
+        bottom: -90px;
+    }
+
+    .cloud-8 {
+        width: 270px;
+        right: -15px;
+        bottom: -85px;
+    }
+
+    .cloud-behind {
+        width: 150px;
+        left: 57%;
+        top: 41%;
     }
 
     .content {
-
         width: 88vw;
-
     }
 
     .content h1 {
-
         font-size: 38px;
-
         letter-spacing: 5px;
-
     }
 
     .content p {
-
         font-size: 16px;
-
     }
-
 }
 
 
@@ -1056,13 +772,9 @@ body {
 @media (prefers-reduced-motion: reduce) {
 
     .cloud,
-    .sprite-cloud,
     .content {
-
         animation: none;
-
     }
-
 }
 
 </style>
@@ -1074,116 +786,65 @@ body {
 
 <div class="sky">
 
-
-    <!-- =====================================================
-         CLOUDS
-         ===================================================== -->
-
     <div class="clouds">
 
-
-        <!-- Original cloud asset #1 -->
-
         <img
-            src="alienized-clouds-7081496.png"
-            class="cloud cloud-a"
+            src="cloud_1.png"
+            class="cloud cloud-1"
             alt=""
         >
 
-
-        <!-- Original cloud asset #2 -->
-
         <img
-            src="95c-cloud-2421760.png"
-            class="cloud cloud-b"
+            src="cloud_2.png"
+            class="cloud cloud-2"
             alt=""
         >
 
+        <img
+            src="cloud_3.png"
+            class="cloud cloud-3"
+            alt=""
+        >
 
-        <!-- =================================================
-             THE 8 INDIVIDUAL CLOUDS
-             FROM placidplace-sky-7296025.png
-             ================================================= -->
+        <img
+            src="cloud_4.png"
+            class="cloud cloud-4"
+            alt=""
+        >
 
+        <img
+            src="cloud_5.png"
+            class="cloud cloud-5"
+            alt=""
+        >
 
-        <!-- Row 1, left -->
+        <img
+            src="cloud_6.png"
+            class="cloud cloud-6"
+            alt=""
+        >
 
-        <div
-            class="sprite-cloud sprite-1"
-            aria-hidden="true"
-        ></div>
+        <img
+            src="cloud_7.png"
+            class="cloud cloud-7"
+            alt=""
+        >
 
+        <img
+            src="cloud_8.png"
+            class="cloud cloud-8"
+            alt=""
+        >
 
-        <!-- Row 1, right -->
-
-        <div
-            class="sprite-cloud sprite-2"
-            aria-hidden="true"
-        ></div>
-
-
-        <!-- Row 2, left -->
-
-        <div
-            class="sprite-cloud sprite-3"
-            aria-hidden="true"
-        ></div>
-
-
-        <!-- Row 2, right -->
-
-        <div
-            class="sprite-cloud sprite-4"
-            aria-hidden="true"
-        ></div>
-
-
-        <!-- Row 3, left -->
-
-        <div
-            class="sprite-cloud sprite-5"
-            aria-hidden="true"
-        ></div>
-
-
-        <!-- Row 3, right -->
-
-        <div
-            class="sprite-cloud sprite-6"
-            aria-hidden="true"
-        ></div>
-
-
-        <!-- Row 4, left -->
-
-        <div
-            class="sprite-cloud sprite-7"
-            aria-hidden="true"
-        ></div>
-
-
-        <!-- Row 4, right -->
-
-        <div
-            class="sprite-cloud sprite-8"
-            aria-hidden="true"
-        ></div>
-
-
-        <!-- Small faded cloud behind the title -->
-
-        <div
-            class="sprite-cloud sprite-behind"
-            aria-hidden="true"
-        ></div>
-
+        <!-- small atmospheric cloud behind title -->
+        <img
+            src="cloud_4.png"
+            class="cloud cloud-behind"
+            alt=""
+        >
 
     </div>
 
-
-    <!-- =====================================================
-         DREAMER
-         ===================================================== -->
 
     <main class="content">
 
@@ -1204,7 +865,6 @@ body {
         </button>
 
     </main>
-
 
 </div>
 
