@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 
@@ -29,13 +28,10 @@
 
 html,
 body {
-
     margin: 0;
     width: 100%;
     height: 100%;
-
     overflow: hidden;
-
 }
 
 body {
@@ -55,7 +51,6 @@ body {
         "Cormorant Garamond",
         Georgia,
         serif;
-
 }
 
 
@@ -221,7 +216,7 @@ body {
 
 
 /* =========================================================
-   ALL CLOUDS
+   NORMAL CLOUD IMAGES
    ========================================================= */
 
 .cloud {
@@ -242,21 +237,18 @@ body {
 
 
 /* =========================================================
-   CLOUD A
-   alienized-clouds-7081496.png
-
-   Large, entering naturally from upper-left.
+   CLOUD FROM ASSET 1
    ========================================================= */
 
 .cloud-a {
 
-    width: 760px;
+    width: 650px;
 
-    left: -330px;
+    left: -270px;
 
-    top: -90px;
+    top: -95px;
 
-    opacity: .92;
+    opacity: .90;
 
     filter:
         drop-shadow(
@@ -265,7 +257,7 @@ body {
 
     animation:
         driftA
-        16s
+        17s
         ease-in-out
         infinite;
 
@@ -273,22 +265,18 @@ body {
 
 
 /* =========================================================
-   CLOUD B
-   95c-cloud-2421760.png
-
-   Smaller and pushed toward the lower-right edge.
-   NOT opposite Cloud A.
+   CLOUD FROM ASSET 2
    ========================================================= */
 
 .cloud-b {
 
-    width: 500px;
+    width: 430px;
 
-    right: -250px;
+    right: -170px;
 
-    bottom: -85px;
+    bottom: -100px;
 
-    opacity: .62;
+    opacity: .58;
 
     filter:
         blur(.7px)
@@ -298,7 +286,7 @@ body {
 
     animation:
         driftB
-        20s
+        21s
         ease-in-out
         infinite;
 
@@ -306,31 +294,66 @@ body {
 
 
 /* =========================================================
-   CLOUD C
-   placidplace-sky-7296025.png
+   SPRITE CLOUDS
+   ---------------------------------------------------------
+   The third PNG contains 8 separate clouds arranged
+   in 2 columns × 4 rows.
 
-   Large cloud group drifting in from upper-right,
-   positioned higher than Cloud B so nothing forms a grid.
+   Each element below displays ONLY ONE quadrant.
    ========================================================= */
 
-.cloud-c {
+.sprite-cloud {
 
-    width: 680px;
+    position: absolute;
 
-    right: -410px;
+    width: 470px;
 
-    top: 8%;
+    aspect-ratio: 2 / 1;
 
-    opacity: .67;
+    background-image:
+        url("placidplace-sky-7296025.png");
 
-    filter:
-        drop-shadow(
-            0 15px 25px rgba(0,0,0,.09)
-        );
+    background-repeat: no-repeat;
+
+    /*
+       The original image is 2 columns × 4 rows.
+       200% width = each column
+       400% height = each row
+    */
+
+    background-size:
+        200% 400%;
+
+    pointer-events: none;
+
+    user-select: none;
+
+    will-change: transform;
+
+}
+
+
+/* =========================================================
+   ROW 1 — LEFT CLOUD
+   ========================================================= */
+
+.sprite-1 {
+
+    left: -175px;
+
+    top: 10%;
+
+    opacity: .48;
+
+    background-position:
+        0% 0%;
+
+    transform:
+        scale(.92);
 
     animation:
-        driftC
-        22s
+        spriteFloat1
+        24s
         ease-in-out
         infinite;
 
@@ -338,26 +361,79 @@ body {
 
 
 /* =========================================================
-   SECOND CLOUD C
-   Same asset, much smaller and faint.
-   This makes the sky feel populated rather than arranged.
+   ROW 1 — RIGHT CLOUD
    ========================================================= */
 
-.cloud-c-small {
+.sprite-2 {
 
-    width: 280px;
+    right: -220px;
 
-    left: 7%;
+    top: -3%;
 
-    bottom: 8%;
+    opacity: .52;
 
-    opacity: .27;
+    background-position:
+        100% 0%;
 
-    filter:
-        blur(2px);
+    transform:
+        scale(.88);
 
     animation:
-        driftD
+        spriteFloat2
+        27s
+        ease-in-out
+        infinite;
+
+}
+
+
+/* =========================================================
+   ROW 2 — LEFT CLOUD
+   ========================================================= */
+
+.sprite-3 {
+
+    left: -190px;
+
+    top: 31%;
+
+    opacity: .36;
+
+    background-position:
+        0% 50%;
+
+    transform:
+        scale(.75);
+
+    animation:
+        spriteFloat3
+        29s
+        ease-in-out
+        infinite;
+
+}
+
+
+/* =========================================================
+   ROW 2 — RIGHT CLOUD
+   ========================================================= */
+
+.sprite-4 {
+
+    right: -175px;
+
+    top: 23%;
+
+    opacity: .42;
+
+    background-position:
+        100% 50%;
+
+    transform:
+        scale(.80);
+
+    animation:
+        spriteFloat4
         25s
         ease-in-out
         infinite;
@@ -366,7 +442,153 @@ body {
 
 
 /* =========================================================
-   CLOUD MOVEMENT
+   ROW 3 — LEFT CLOUD
+   ========================================================= */
+
+.sprite-5 {
+
+    left: 8%;
+
+    bottom: -100px;
+
+    opacity: .45;
+
+    background-position:
+        0% 66.666%;
+
+    transform:
+        scale(.82);
+
+    animation:
+        spriteFloat5
+        30s
+        ease-in-out
+        infinite;
+
+}
+
+
+/* =========================================================
+   ROW 3 — RIGHT CLOUD
+   ========================================================= */
+
+.sprite-6 {
+
+    right: -130px;
+
+    bottom: 12%;
+
+    opacity: .31;
+
+    background-position:
+        100% 66.666%;
+
+    transform:
+        scale(.72);
+
+    animation:
+        spriteFloat6
+        26s
+        ease-in-out
+        infinite;
+
+}
+
+
+/* =========================================================
+   ROW 4 — LEFT CLOUD
+   ========================================================= */
+
+.sprite-7 {
+
+    left: 25%;
+
+    bottom: -145px;
+
+    opacity: .40;
+
+    background-position:
+        0% 100%;
+
+    transform:
+        scale(.68);
+
+    animation:
+        spriteFloat7
+        32s
+        ease-in-out
+        infinite;
+
+}
+
+
+/* =========================================================
+   ROW 4 — RIGHT CLOUD
+   ========================================================= */
+
+.sprite-8 {
+
+    right: 15%;
+
+    bottom: -125px;
+
+    opacity: .34;
+
+    background-position:
+        100% 100%;
+
+    transform:
+        scale(.63);
+
+    animation:
+        spriteFloat8
+        28s
+        ease-in-out
+        infinite;
+
+}
+
+
+/* =========================================================
+   SPECIAL CLOUD BEHIND THE TITLE
+   ---------------------------------------------------------
+   Small, faded, offset to the right.
+   It passes behind the atmosphere of the title without
+   sitting directly underneath it.
+   ========================================================= */
+
+.sprite-behind {
+
+    width: 285px;
+
+    aspect-ratio: 2 / 1;
+
+    left: 58%;
+
+    top: 38%;
+
+    opacity: .14;
+
+    background-position:
+        100% 66.666%;
+
+    filter:
+        saturate(.25)
+        blur(1px);
+
+    z-index: 7;
+
+    animation:
+        behindFloat
+        18s
+        ease-in-out
+        infinite;
+
+}
+
+
+/* =========================================================
+   CLOUD MOTION
    ========================================================= */
 
 @keyframes driftA {
@@ -379,7 +601,7 @@ body {
 
     50% {
         transform:
-            translate3d(22px, -10px, 0);
+            translate3d(28px, -13px, 0);
     }
 
 }
@@ -395,46 +617,160 @@ body {
 
     50% {
         transform:
-            translate3d(-18px, -9px, 0);
+            translate3d(-24px, -11px, 0);
     }
 
 }
 
 
-@keyframes driftC {
+@keyframes spriteFloat1 {
 
     0%,
     100% {
-        transform:
-            translate3d(0, 0, 0);
+        margin-left: 0;
+        margin-top: 0;
     }
 
     50% {
-        transform:
-            translate3d(-25px, 11px, 0);
+        margin-left: 25px;
+        margin-top: -12px;
     }
 
 }
 
 
-@keyframes driftD {
+@keyframes spriteFloat2 {
+
+    0%,
+    100% {
+        margin-left: 0;
+        margin-top: 0;
+    }
+
+    50% {
+        margin-left: -22px;
+        margin-top: 14px;
+    }
+
+}
+
+
+@keyframes spriteFloat3 {
+
+    0%,
+    100% {
+        margin-left: 0;
+        margin-top: 0;
+    }
+
+    50% {
+        margin-left: 17px;
+        margin-top: -9px;
+    }
+
+}
+
+
+@keyframes spriteFloat4 {
+
+    0%,
+    100% {
+        margin-left: 0;
+        margin-top: 0;
+    }
+
+    50% {
+        margin-left: -27px;
+        margin-top: -7px;
+    }
+
+}
+
+
+@keyframes spriteFloat5 {
+
+    0%,
+    100% {
+        margin-left: 0;
+        margin-top: 0;
+    }
+
+    50% {
+        margin-left: 23px;
+        margin-top: -15px;
+    }
+
+}
+
+
+@keyframes spriteFloat6 {
+
+    0%,
+    100% {
+        margin-left: 0;
+        margin-top: 0;
+    }
+
+    50% {
+        margin-left: -20px;
+        margin-top: 12px;
+    }
+
+}
+
+
+@keyframes spriteFloat7 {
+
+    0%,
+    100% {
+        margin-left: 0;
+        margin-top: 0;
+    }
+
+    50% {
+        margin-left: 15px;
+        margin-top: -10px;
+    }
+
+}
+
+
+@keyframes spriteFloat8 {
+
+    0%,
+    100% {
+        margin-left: 0;
+        margin-top: 0;
+    }
+
+    50% {
+        margin-left: -18px;
+        margin-top: -13px;
+    }
+
+}
+
+
+@keyframes behindFloat {
 
     0%,
     100% {
         transform:
-            translate3d(0, 0, 0);
+            translate3d(0, 0, 0)
+            rotate(-2deg);
     }
 
     50% {
         transform:
-            translate3d(16px, -7px, 0);
+            translate3d(-25px, -18px, 0)
+            rotate(2deg);
     }
 
 }
 
 
 /* =========================================================
-   FLOATING CENTRAL CONTENT
+   CENTRAL CONTENT
    ========================================================= */
 
 .content {
@@ -444,18 +780,20 @@ body {
     left: 50%;
     top: 50%;
 
-    transform:
-        translate(-50%, -50%);
-
     width: min(760px, 82vw);
 
     text-align: center;
 
     z-index: 10;
 
+    /*
+       Noticeable floating:
+       7px → 18px rather than barely moving.
+    */
+
     animation:
         dreamFloat
-        7s
+        6s
         ease-in-out
         infinite;
 
@@ -578,17 +916,16 @@ body {
 
 
 /* =========================================================
-   TITLE FLOAT
+   MORE OBVIOUS DREAM FLOAT
    ========================================================= */
 
 @keyframes dreamFloat {
 
-    0%,
-    100% {
+    0% {
 
         transform:
             translate(-50%, -50%)
-            translateY(0);
+            translateY(8px);
 
     }
 
@@ -596,7 +933,15 @@ body {
 
         transform:
             translate(-50%, -50%)
-            translateY(-7px);
+            translateY(-10px);
+
+    }
+
+    100% {
+
+        transform:
+            translate(-50%, -50%)
+            translateY(8px);
 
     }
 
@@ -611,41 +956,73 @@ body {
 
     .cloud-a {
 
-        width: 540px;
+        width: 500px;
 
         left: -250px;
-
-        top: -40px;
 
     }
 
     .cloud-b {
 
+        width: 340px;
+
+        right: -180px;
+
+    }
+
+    .sprite-cloud {
+
         width: 350px;
 
+    }
+
+    .sprite-1 {
+        left: -170px;
+        top: 7%;
+    }
+
+    .sprite-2 {
         right: -190px;
-
-        bottom: -40px;
-
+        top: 1%;
     }
 
-    .cloud-c {
-
-        width: 470px;
-
-        right: -290px;
-
-        top: 4%;
-
+    .sprite-3 {
+        left: -170px;
+        top: 32%;
     }
 
-    .cloud-c-small {
+    .sprite-4 {
+        right: -170px;
+        top: 25%;
+    }
 
-        width: 210px;
-
+    .sprite-5 {
         left: -40px;
+        bottom: -80px;
+    }
 
-        bottom: 7%;
+    .sprite-6 {
+        right: -130px;
+        bottom: 11%;
+    }
+
+    .sprite-7 {
+        left: 8%;
+        bottom: -110px;
+    }
+
+    .sprite-8 {
+        right: -40px;
+        bottom: -100px;
+    }
+
+    .sprite-behind {
+
+        width: 220px;
+
+        left: 56%;
+
+        top: 39%;
 
     }
 
@@ -679,6 +1056,7 @@ body {
 @media (prefers-reduced-motion: reduce) {
 
     .cloud,
+    .sprite-cloud,
     .content {
 
         animation: none;
@@ -698,13 +1076,14 @@ body {
 
 
     <!-- =====================================================
-         THREE DIFFERENT CLOUD ASSETS
+         CLOUDS
          ===================================================== -->
 
     <div class="clouds">
 
 
-        <!-- Cloud 1 -->
+        <!-- Original cloud asset #1 -->
+
         <img
             src="alienized-clouds-7081496.png"
             class="cloud cloud-a"
@@ -712,7 +1091,8 @@ body {
         >
 
 
-        <!-- Cloud 2 -->
+        <!-- Original cloud asset #2 -->
+
         <img
             src="95c-cloud-2421760.png"
             class="cloud cloud-b"
@@ -720,20 +1100,83 @@ body {
         >
 
 
-        <!-- Cloud 3 -->
-        <img
-            src="placidplace-sky-7296025.png"
-            class="cloud cloud-c"
-            alt=""
-        >
+        <!-- =================================================
+             THE 8 INDIVIDUAL CLOUDS
+             FROM placidplace-sky-7296025.png
+             ================================================= -->
 
 
-        <!-- Smaller distant version of Cloud 3 -->
-        <img
-            src="placidplace-sky-7296025.png"
-            class="cloud cloud-c-small"
-            alt=""
-        >
+        <!-- Row 1, left -->
+
+        <div
+            class="sprite-cloud sprite-1"
+            aria-hidden="true"
+        ></div>
+
+
+        <!-- Row 1, right -->
+
+        <div
+            class="sprite-cloud sprite-2"
+            aria-hidden="true"
+        ></div>
+
+
+        <!-- Row 2, left -->
+
+        <div
+            class="sprite-cloud sprite-3"
+            aria-hidden="true"
+        ></div>
+
+
+        <!-- Row 2, right -->
+
+        <div
+            class="sprite-cloud sprite-4"
+            aria-hidden="true"
+        ></div>
+
+
+        <!-- Row 3, left -->
+
+        <div
+            class="sprite-cloud sprite-5"
+            aria-hidden="true"
+        ></div>
+
+
+        <!-- Row 3, right -->
+
+        <div
+            class="sprite-cloud sprite-6"
+            aria-hidden="true"
+        ></div>
+
+
+        <!-- Row 4, left -->
+
+        <div
+            class="sprite-cloud sprite-7"
+            aria-hidden="true"
+        ></div>
+
+
+        <!-- Row 4, right -->
+
+        <div
+            class="sprite-cloud sprite-8"
+            aria-hidden="true"
+        ></div>
+
+
+        <!-- Small faded cloud behind the title -->
+
+        <div
+            class="sprite-cloud sprite-behind"
+            aria-hidden="true"
+        ></div>
+
 
     </div>
 
@@ -779,4 +1222,3 @@ function enterSky() {
 </body>
 
 </html>
-```
