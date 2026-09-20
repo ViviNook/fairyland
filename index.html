@@ -276,18 +276,15 @@
             transform-origin: left center;
         }
 
-
-        .wind-blown .wind-title,
-        .wind-blown .wind-subtitle,
-        .wind-blown .enter {
-
-            animation:
-                carpetWind
-                1.15s
-                cubic-bezier(.55, 0, .18, 1)
-                forwards;
-        }
-
+.wind-blown .wind-title,
+.wind-blown .wind-subtitle,
+.wind-blown .enter {
+    animation:
+        carpetWind
+        1.8s
+        cubic-bezier(0.16, 1, 0.3, 1)
+        forwards;
+}
 
         /* =====================================================
            MAGIC CARPET / STIFF SHEET MOTION
@@ -297,80 +294,82 @@
            Then WHOOSH
            ===================================================== */
 
-        @keyframes carpetWind {
+       
+        
+              @keyframes carpetWind {
 
-            0% {
-                transform:
-                    perspective(900px)
-                    translateX(0)
-                    rotateY(0deg)
-                    rotateX(0deg)
-                    skewX(0deg);
+    0% {
+        transform:
+            perspective(1400px)
+            translate3d(0, 0, 0)
+            rotateY(0deg)
+            rotateX(0deg)
+            skewX(0deg)
+            scale(1);
 
-                opacity: 1;
-            }
+        opacity: 1;
+    }
 
+    25% {
+        transform:
+            perspective(1400px)
+            translate3d(8vw, -1vh, 0)
+            rotateY(-7deg)
+            rotateX(1deg)
+            skewX(-1deg)
+            scale(1.01);
 
-            18% {
-                transform:
-                    perspective(900px)
-                    translateX(3vw)
-                    rotateY(-5deg)
-                    rotateX(1deg)
-                    skewX(-1deg);
+        opacity: 1;
+    }
 
-                opacity: 1;
-            }
+    50% {
+        transform:
+            perspective(1400px)
+            translate3d(32vw, -2vh, 0)
+            rotateY(-18deg)
+            rotateX(2deg)
+            skewX(-2deg)
+            scale(1.025);
 
+        opacity: 0.98;
+    }
 
-            38% {
-                transform:
-                    perspective(900px)
-                    translateX(16vw)
-                    rotateY(-18deg)
-                    rotateX(2deg)
-                    skewX(-3deg);
+    70% {
+        transform:
+            perspective(1400px)
+            translate3d(65vw, -3vh, 0)
+            rotateY(-35deg)
+            rotateX(2deg)
+            skewX(-3deg)
+            scale(1.04);
 
-                opacity: 1;
-            }
+        opacity: 0.8;
+    }
 
+    85% {
+        transform:
+            perspective(1400px)
+            translate3d(95vw, -2vh, 0)
+            rotateY(-55deg)
+            rotateX(1deg)
+            skewX(-2deg)
+            scale(1.06);
 
-            58% {
-                transform:
-                    perspective(900px)
-                    translateX(43vw)
-                    rotateY(-42deg)
-                    rotateX(-2deg)
-                    skewX(-4deg);
+        opacity: 0.45;
+    }
 
-                opacity: 0.92;
-            }
+    100% {
+        transform:
+            perspective(1400px)
+            translate3d(135vw, 0, 0)
+            rotateY(-75deg)
+            rotateX(0deg)
+            skewX(0deg)
+            scale(1.08);
 
-
-            78% {
-                transform:
-                    perspective(900px)
-                    translateX(78vw)
-                    rotateY(-78deg)
-                    rotateX(2deg)
-                    skewX(-2deg);
-
-                opacity: 0.45;
-            }
-
-
-            100% {
-                transform:
-                    perspective(900px)
-                    translateX(125vw)
-                    rotateY(-180deg)
-                    rotateX(0deg)
-                    skewX(0deg);
-
-                opacity: 0;
-            }
-        }
-
+        opacity: 0;
+    }
+}
 
         /* =====================================================
            GENTLE BREATHING
