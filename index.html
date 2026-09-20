@@ -41,7 +41,6 @@ body {
 body {
 
     background:
-
         radial-gradient(
             ellipse at center,
             #17345b 0%,
@@ -154,7 +153,7 @@ body {
 
 
 /* =========================================================
-   TEAL AURORA — EDGE GLOW
+   TEAL AURORA — EDGES
    ========================================================= */
 
 .sky::after {
@@ -163,41 +162,41 @@ body {
 
     position: absolute;
 
-    inset: -18%;
+    inset: -20%;
 
     pointer-events: none;
 
     background:
 
         radial-gradient(
-            ellipse at 0% 45%,
-            rgba(37,211,206,.25),
-            rgba(24,175,185,.15) 13%,
-            rgba(20,140,170,.07) 27%,
-            transparent 43%
-        ),
-
-        radial-gradient(
-            ellipse at 100% 52%,
-            rgba(53,216,209,.23),
-            rgba(30,174,190,.13) 14%,
-            rgba(20,120,170,.06) 28%,
+            ellipse at -3% 45%,
+            rgba(37,211,206,.30),
+            rgba(24,175,185,.17) 14%,
+            rgba(20,140,170,.08) 27%,
             transparent 44%
         ),
 
         radial-gradient(
-            ellipse at 50% 0%,
-            rgba(40,190,210,.10),
-            transparent 38%
+            ellipse at 103% 52%,
+            rgba(53,216,209,.27),
+            rgba(30,174,190,.15) 14%,
+            rgba(20,120,170,.07) 29%,
+            transparent 45%
         ),
 
         radial-gradient(
-            ellipse at 50% 100%,
-            rgba(25,155,180,.07),
+            ellipse at 50% -5%,
+            rgba(40,190,210,.10),
+            transparent 40%
+        ),
+
+        radial-gradient(
+            ellipse at 50% 105%,
+            rgba(25,155,180,.08),
             transparent 40%
         );
 
-    filter: blur(20px);
+    filter: blur(22px);
 
     z-index: 2;
 
@@ -205,10 +204,10 @@ body {
 
 
 /* =========================================================
-   CLOUD WORLD
+   CLOUD LAYER
    ========================================================= */
 
-.cloud-world {
+.clouds {
 
     position: absolute;
 
@@ -216,13 +215,13 @@ body {
 
     pointer-events: none;
 
-    z-index: 4;
+    z-index: 5;
 
 }
 
 
 /* =========================================================
-   CLOUD BASE
+   ALL CLOUDS
    ========================================================= */
 
 .cloud {
@@ -239,84 +238,34 @@ body {
 
     will-change: transform;
 
-    filter:
-        drop-shadow(
-            0 14px 22px rgba(0,0,0,.10)
-        );
-
 }
 
 
 /* =========================================================
-   LARGE LEFT CLOUD
+   CLOUD A
+   alienized-clouds-7081496.png
+
+   Large, entering naturally from upper-left.
    ========================================================= */
 
-.cloud-main {
-
-    width: 820px;
-
-    left: -330px;
-
-    top: -80px;
-
-    opacity: .92;
-
-    animation:
-        cloudDriftOne
-        15s
-        ease-in-out
-        infinite;
-
-}
-
-
-/* =========================================================
-   NEW MULTI-CLOUD PNG
-   Floating higher/right — NOT MIRRORED
-   ========================================================= */
-
-.cloud-cluster {
+.cloud-a {
 
     width: 760px;
 
-    right: -390px;
+    left: -330px;
 
-    top: -150px;
+    top: -90px;
 
-    opacity: .70;
-
-    animation:
-        cloudDriftTwo
-        19s
-        ease-in-out
-        infinite;
-
-}
-
-
-/* =========================================================
-   SMALL DISTANT CLOUD
-   ========================================================= */
-
-.cloud-low {
-
-    width: 420px;
-
-    left: -170px;
-
-    bottom: -55px;
-
-    opacity: .46;
+    opacity: .92;
 
     filter:
-        blur(1px)
         drop-shadow(
-            0 10px 18px rgba(0,0,0,.10)
+            0 15px 25px rgba(0,0,0,.10)
         );
 
     animation:
-        cloudDriftThree
-        21s
+        driftA
+        16s
         ease-in-out
         infinite;
 
@@ -324,25 +273,92 @@ body {
 
 
 /* =========================================================
-   TINY BACKGROUND CLOUD
+   CLOUD B
+   95c-cloud-2421760.png
+
+   Smaller and pushed toward the lower-right edge.
+   NOT opposite Cloud A.
    ========================================================= */
 
-.cloud-far {
+.cloud-b {
 
-    width: 300px;
+    width: 500px;
 
-    right: -90px;
+    right: -250px;
 
-    bottom: 3%;
+    bottom: -85px;
 
-    opacity: .28;
+    opacity: .62;
+
+    filter:
+        blur(.7px)
+        drop-shadow(
+            0 12px 20px rgba(0,0,0,.10)
+        );
+
+    animation:
+        driftB
+        20s
+        ease-in-out
+        infinite;
+
+}
+
+
+/* =========================================================
+   CLOUD C
+   placidplace-sky-7296025.png
+
+   Large cloud group drifting in from upper-right,
+   positioned higher than Cloud B so nothing forms a grid.
+   ========================================================= */
+
+.cloud-c {
+
+    width: 680px;
+
+    right: -410px;
+
+    top: 8%;
+
+    opacity: .67;
+
+    filter:
+        drop-shadow(
+            0 15px 25px rgba(0,0,0,.09)
+        );
+
+    animation:
+        driftC
+        22s
+        ease-in-out
+        infinite;
+
+}
+
+
+/* =========================================================
+   SECOND CLOUD C
+   Same asset, much smaller and faint.
+   This makes the sky feel populated rather than arranged.
+   ========================================================= */
+
+.cloud-c-small {
+
+    width: 280px;
+
+    left: 7%;
+
+    bottom: 8%;
+
+    opacity: .27;
 
     filter:
         blur(2px);
 
     animation:
-        cloudDriftFour
-        24s
+        driftD
+        25s
         ease-in-out
         infinite;
 
@@ -353,64 +369,72 @@ body {
    CLOUD MOVEMENT
    ========================================================= */
 
-@keyframes cloudDriftOne {
+@keyframes driftA {
 
     0%,
     100% {
-        transform: translate3d(0, 0, 0);
+        transform:
+            translate3d(0, 0, 0);
     }
 
     50% {
-        transform: translate3d(20px, -10px, 0);
+        transform:
+            translate3d(22px, -10px, 0);
     }
 
 }
 
 
-@keyframes cloudDriftTwo {
+@keyframes driftB {
 
     0%,
     100% {
-        transform: translate3d(0, 0, 0);
+        transform:
+            translate3d(0, 0, 0);
     }
 
     50% {
-        transform: translate3d(-24px, 12px, 0);
+        transform:
+            translate3d(-18px, -9px, 0);
     }
 
 }
 
 
-@keyframes cloudDriftThree {
+@keyframes driftC {
 
     0%,
     100% {
-        transform: translate3d(0, 0, 0);
+        transform:
+            translate3d(0, 0, 0);
     }
 
     50% {
-        transform: translate3d(18px, -8px, 0);
+        transform:
+            translate3d(-25px, 11px, 0);
     }
 
 }
 
 
-@keyframes cloudDriftFour {
+@keyframes driftD {
 
     0%,
     100% {
-        transform: translate3d(0, 0, 0);
+        transform:
+            translate3d(0, 0, 0);
     }
 
     50% {
-        transform: translate3d(-12px, -6px, 0);
+        transform:
+            translate3d(16px, -7px, 0);
     }
 
 }
 
 
 /* =========================================================
-   CENTRAL CONTENT
+   FLOATING CENTRAL CONTENT
    ========================================================= */
 
 .content {
@@ -446,7 +470,8 @@ body {
 
     margin: 0;
 
-    font-size: clamp(40px, 5vw, 58px);
+    font-size:
+        clamp(40px, 5vw, 58px);
 
     font-weight: 300;
 
@@ -458,7 +483,7 @@ body {
 
         0 0 18px rgba(255,255,255,.13),
 
-        0 0 38px rgba(170,210,255,.10);
+        0 0 40px rgba(170,210,255,.10);
 
 }
 
@@ -469,7 +494,8 @@ body {
 
 .content p {
 
-    margin: 15px 0 30px;
+    margin:
+        14px 0 30px;
 
     font-size: 20px;
 
@@ -485,7 +511,7 @@ body {
 
 
 /* =========================================================
-   DREAM BUTTON
+   BUTTON
    ========================================================= */
 
 .enter-button {
@@ -495,19 +521,22 @@ body {
     align-items: center;
     justify-content: center;
 
-    min-width: 170px;
+    min-width: 175px;
 
-    padding: 13px 30px;
+    padding:
+        13px 30px;
 
-    border: 1px solid rgba(255,236,185,.55);
+    border:
+        1px solid rgba(255,236,185,.58);
 
-    border-radius: 999px;
+    border-radius:
+        999px;
 
     background:
-
         rgba(255,248,220,.055);
 
-    color: #fff8df;
+    color:
+        #fff8df;
 
     font-family:
         "Cormorant Garamond",
@@ -520,14 +549,13 @@ body {
 
     cursor: pointer;
 
-    backdrop-filter: blur(5px);
+    backdrop-filter:
+        blur(5px);
 
     box-shadow:
-
         0 0 18px rgba(255,235,180,.06);
 
     transition:
-
         background .4s ease,
         box-shadow .4s ease,
         transform .4s ease;
@@ -538,12 +566,10 @@ body {
 .enter-button:hover {
 
     background:
-
         rgba(255,248,220,.11);
 
     box-shadow:
-
-        0 0 28px rgba(255,235,180,.14);
+        0 0 30px rgba(255,235,180,.15);
 
     transform:
         translateY(-2px);
@@ -552,7 +578,7 @@ body {
 
 
 /* =========================================================
-   CENTRAL FLOAT
+   TITLE FLOAT
    ========================================================= */
 
 @keyframes dreamFloat {
@@ -583,9 +609,9 @@ body {
 
 @media (max-width: 700px) {
 
-    .cloud-main {
+    .cloud-a {
 
-        width: 570px;
+        width: 540px;
 
         left: -250px;
 
@@ -593,31 +619,33 @@ body {
 
     }
 
-    .cloud-cluster {
+    .cloud-b {
 
-        width: 500px;
+        width: 350px;
 
-        right: -280px;
+        right: -190px;
 
-        top: -70px;
-
-    }
-
-    .cloud-low {
-
-        width: 300px;
-
-        left: -140px;
-
-        bottom: -30px;
+        bottom: -40px;
 
     }
 
-    .cloud-far {
+    .cloud-c {
 
-        width: 220px;
+        width: 470px;
 
-        right: -80px;
+        right: -290px;
+
+        top: 4%;
+
+    }
+
+    .cloud-c-small {
+
+        width: 210px;
+
+        left: -40px;
+
+        bottom: 7%;
 
     }
 
@@ -666,37 +694,44 @@ body {
 
 <body>
 
-
 <div class="sky">
 
 
     <!-- =====================================================
-         CLOUDS
+         THREE DIFFERENT CLOUD ASSETS
          ===================================================== -->
 
-    <div class="cloud-world">
+    <div class="clouds">
 
+
+        <!-- Cloud 1 -->
         <img
             src="alienized-clouds-7081496.png"
-            class="cloud cloud-main"
+            class="cloud cloud-a"
             alt=""
         >
 
-        <img
-            src="placidplace-sky-7296025.png"
-            class="cloud cloud-cluster"
-            alt=""
-        >
 
+        <!-- Cloud 2 -->
         <img
             src="95c-cloud-2421760.png"
-            class="cloud cloud-low"
+            class="cloud cloud-b"
             alt=""
         >
 
+
+        <!-- Cloud 3 -->
         <img
             src="placidplace-sky-7296025.png"
-            class="cloud cloud-far"
+            class="cloud cloud-c"
+            alt=""
+        >
+
+
+        <!-- Smaller distant version of Cloud 3 -->
+        <img
+            src="placidplace-sky-7296025.png"
+            class="cloud cloud-c-small"
             alt=""
         >
 
@@ -704,7 +739,7 @@ body {
 
 
     <!-- =====================================================
-         CENTRAL DREAMER CONTENT
+         DREAMER
          ===================================================== -->
 
     <main class="content">
