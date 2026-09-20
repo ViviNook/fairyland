@@ -9,9 +9,11 @@
 <title>The Dreaming Sky</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin">
 
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400&display=swap" rel="stylesheet">
+<link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400&display=swap"
+    rel="stylesheet">
 
 
 <style>
@@ -22,15 +24,20 @@
 
 html,
 body {
+
     margin: 0;
     width: 100%;
     height: 100%;
+
     overflow: hidden;
+
 }
+
 
 body {
 
     background:
+
         radial-gradient(
             ellipse at center,
             #142d52 0%,
@@ -50,7 +57,7 @@ body {
 
 
 /* =========================================================
-   STAR FIELD
+   STARS
    ========================================================= */
 
 body::before {
@@ -58,6 +65,7 @@ body::before {
     content: "";
 
     position: fixed;
+
     inset: 0;
 
     pointer-events: none;
@@ -66,7 +74,7 @@ body::before {
 
         radial-gradient(
             circle,
-            rgba(255,255,255,.80) .45px,
+            rgba(255,255,255,.85) .45px,
             transparent .9px
         ),
 
@@ -104,43 +112,27 @@ body::before {
             circle,
             rgba(255,255,255,.85) 1.1px,
             transparent 1.8px
-        ),
-
-        radial-gradient(
-            circle,
-            rgba(180,240,240,.65) 1px,
-            transparent 1.8px
-        ),
-
-        radial-gradient(
-            circle,
-            rgba(255,250,225,.95) 1.5px,
-            transparent 2.5px
         );
 
     background-size:
 
-        47px 53px,
-        63px 71px,
-        79px 91px,
-        103px 117px,
-        137px 151px,
-        167px 181px,
-        211px 229px,
-        271px 293px,
-        389px 421px;
+        71px 79px,
+        107px 119px,
+        149px 163px,
+        197px 211px,
+        251px 269px,
+        317px 337px,
+        421px 449px;
 
     background-position:
 
-        13px 21px,
-        41px 67px,
-        73px 11px,
-        101px 89px,
-        19px 143px,
-        157px 37px,
-        61px 191px,
-        233px 83px,
-        91px 271px;
+        17px 23px,
+        43px 71px,
+        89px 31px,
+        127px 103px,
+        19px 157px,
+        181px 47px,
+        73px 233px;
 
     opacity: .92;
 
@@ -148,7 +140,7 @@ body::before {
 
 
 /* =========================================================
-   TEAL AURORA EDGES
+   TEAL AURORA — EDGES ONLY
    ========================================================= */
 
 body::after {
@@ -156,6 +148,7 @@ body::after {
     content: "";
 
     position: fixed;
+
     inset: -15%;
 
     pointer-events: none;
@@ -186,360 +179,189 @@ body::after {
 
     filter: blur(18px);
 
+    z-index: 1;
+
 }
 
 
 /* =========================================================
-   MAIN WORLD
+   SKY
    ========================================================= */
 
 .sky {
 
+    position: relative;
+
     width: 100%;
     height: 100vh;
 
-    position: relative;
-
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
+    overflow: hidden;
 
 }
 
 
 /* =========================================================
-   CENTRAL TITLE
+   CLOUD LAYER
    ========================================================= */
 
-.title {
-
-    position: relative;
-
-    text-align: center;
-
-    z-index: 5;
-
-}
-
-.title h1 {
-
-    margin: 0;
-
-    font-size: 58px;
-
-    font-weight: 300;
-
-    letter-spacing: 9px;
-
-    color: #fffaf0;
-
-    text-shadow:
-        0 0 18px rgba(255,255,255,.10),
-        0 0 35px rgba(255,210,120,.06);
-
-}
-
-.title p {
-
-    margin: 14px 0 0;
-
-    font-size: 19px;
-
-    letter-spacing: 2px;
-
-    opacity: .72;
-
-}
-
-
-/* =========================================================
-   GOLD FILIGREE FRAME
-   ========================================================= */
-
-.filigree {
+.cloud-layer {
 
     position: absolute;
 
-    left: 50%;
-    top: 50%;
-
-    width: min(760px, 82vw);
-    height: 270px;
-
-    transform:
-        translate(-50%, -50%);
+    inset: 0;
 
     pointer-events: none;
 
-    z-index: 4;
+    z-index: 2;
 
 }
 
 
 /* =========================================================
-   MAIN GOLD LINES
+   CLOUD
+
+   The cloud is deliberately kept in the upper-left
+   "safe zone", away from the central text.
    ========================================================= */
 
-.filigree::before,
-.filigree::after {
-
-    content: "";
+.cloud {
 
     position: absolute;
 
-    top: 50%;
+    width: 380px;
 
-    width: 37%;
+    height: auto;
 
-    height: 1px;
+    pointer-events: none;
 
-    background:
-        linear-gradient(
-            90deg,
-            transparent,
-            rgba(231,193,103,.15),
-            rgba(245,211,126,.95),
-            rgba(231,193,103,.25),
-            transparent
-        );
-
-    box-shadow:
-        0 0 7px rgba(244,204,110,.18);
-
-}
-
-.filigree::before {
-
-    left: 0;
-
-}
-
-.filigree::after {
-
-    right: 0;
-
-}
-
-
-/* =========================================================
-   ORNAMENT CORNERS
-   ========================================================= */
-
-.ornament {
-
-    position: absolute;
-
-    width: 115px;
-    height: 115px;
-
-    color: #e8c46f;
+    user-select: none;
 
     opacity: .92;
 
-}
-
-
-/* TOP LEFT */
-
-.ornament.tl {
-
-    top: 0;
-    left: 0;
-
-}
-
-
-/* TOP RIGHT */
-
-.ornament.tr {
-
-    top: 0;
-    right: 0;
-
-    transform:
-        scaleX(-1);
-
-}
-
-
-/* BOTTOM LEFT */
-
-.ornament.bl {
-
-    bottom: 0;
-    left: 0;
-
-    transform:
-        scaleY(-1);
-
-}
-
-
-/* BOTTOM RIGHT */
-
-.ornament.br {
-
-    bottom: 0;
-    right: 0;
-
-    transform:
-        scale(-1);
+    filter:
+        drop-shadow(
+            0 12px 20px rgba(0,0,0,.12)
+        );
 
 }
 
 
 /* =========================================================
-   FILIGREE DRAWING
+   CLOUD POSITION
+
+   Partly outside the viewport.
+
+   It cannot touch the central title because the title
+   occupies the middle of the screen.
    ========================================================= */
 
-.ornament svg {
+.cloud-left {
 
-    width: 100%;
-    height: 100%;
+    left: -145px;
 
-    overflow: visible;
-
-}
-
-.ornament path {
-
-    fill: none;
-
-    stroke: currentColor;
-
-    stroke-width: 1.4;
-
-    stroke-linecap: round;
-
-    stroke-linejoin: round;
-
-}
-
-.ornament .fine {
-
-    stroke-width: .8;
-
-    opacity: .75;
-
-}
-
-.ornament circle {
-
-    fill: #e8c46f;
+    top: 4%;
 
 }
 
 
 /* =========================================================
-   LITTLE CENTER DIAMOND
+   CLOUD FLOAT
    ========================================================= */
 
-.center-gem {
-
-    position: absolute;
-
-    left: 50%;
-    top: 50%;
-
-    width: 6px;
-    height: 6px;
-
-    transform:
-        translate(-50%, -50%)
-        rotate(45deg);
-
-    background: #f1d27c;
-
-    box-shadow:
-        0 0 9px rgba(241,210,124,.65);
-
-}
-
-
-/* =========================================================
-   SIDE CURLS
-   ========================================================= */
-
-.side-curl {
-
-    position: absolute;
-
-    top: 50%;
-
-    width: 95px;
-    height: 70px;
-
-    transform: translateY(-50%);
-
-}
-
-.side-curl.left {
-
-    left: 26%;
-
-}
-
-.side-curl.right {
-
-    right: 26%;
-
-    transform:
-        translateY(-50%)
-        scaleX(-1);
-
-}
-
-.side-curl svg {
-
-    width: 100%;
-    height: 100%;
-
-}
-
-.side-curl path {
-
-    fill: none;
-
-    stroke: #e8c46f;
-
-    stroke-width: 1.3;
-
-    stroke-linecap: round;
-
-    opacity: .9;
-
-}
-
-
-/* =========================================================
-   SUBTLE GOLD FLOAT
-   ========================================================= */
-
-.filigree {
+.cloud-left {
 
     animation:
-        goldBreath
-        7s
+        cloudFloat
+        9s
         ease-in-out
         infinite;
 
 }
 
-@keyframes goldBreath {
+
+@keyframes cloudFloat {
 
     0%,
     100% {
 
-        opacity: .82;
+        transform:
+            translate3d(0, 0, 0);
 
     }
 
     50% {
 
-        opacity: 1;
+        transform:
+            translate3d(10px, -6px, 0);
 
     }
+
+}
+
+
+/* =========================================================
+   TITLE SAFE ZONE
+   ========================================================= */
+
+.title {
+
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    transform:
+        translate(-50%, -50%);
+
+    width: min(760px, 72vw);
+
+    text-align: center;
+
+    z-index: 10;
+
+    /*
+       The title is always above the cloud layer.
+       */
+
+}
+
+
+/* =========================================================
+   TITLE
+   ========================================================= */
+
+.title h1 {
+
+    margin: 0;
+
+    font-size: 54px;
+
+    font-weight: 300;
+
+    letter-spacing: 7px;
+
+    color: #fffaf0;
+
+    text-shadow:
+
+        0 0 18px rgba(255,255,255,.10),
+
+        0 0 35px rgba(170,210,255,.08);
+
+}
+
+
+.title p {
+
+    margin: 14px 0 0;
+
+    font-size: 20px;
+
+    line-height: 1.8;
+
+    letter-spacing: 1px;
+
+    opacity: .78;
 
 }
 
@@ -548,7 +370,27 @@ body::after {
    MOBILE
    ========================================================= */
 
-@media (max-width: 650px) {
+@media (max-width: 700px) {
+
+    .cloud {
+
+        width: 280px;
+
+    }
+
+    .cloud-left {
+
+        left: -110px;
+
+        top: 3%;
+
+    }
+
+    .title {
+
+        width: 86vw;
+
+    }
 
     .title h1 {
 
@@ -561,12 +403,6 @@ body::after {
     .title p {
 
         font-size: 16px;
-
-    }
-
-    .filigree {
-
-        width: 94vw;
 
     }
 
@@ -584,180 +420,16 @@ body::after {
 
 
     <!-- =====================================================
-         GOLD FRAME
+         CLOUD
          ===================================================== -->
 
-    <div class="filigree">
+    <div class="cloud-layer">
 
-
-        <!-- TOP LEFT -->
-
-        <div class="ornament tl">
-
-            <svg viewBox="0 0 120 120">
-
-                <path d="
-                    M110 10
-                    C80 8 52 12 35 28
-                    C17 44 13 64 24 77
-                    C34 89 51 87 57 76
-                    C63 65 54 54 44 57
-                    C32 60 34 76 45 79
-                "/>
-
-                <path class="fine" d="
-                    M95 18
-                    C76 20 59 27 51 40
-                    C44 51 47 61 56 63
-                "/>
-
-                <path class="fine" d="
-                    M70 16
-                    C69 28 75 34 85 34
-                    C94 34 98 27 94 22
-                "/>
-
-                <path d="
-                    M24 77
-                    C14 86 13 99 23 105
-                    C34 111 46 105 45 96
-                    C44 89 36 87 31 92
-                "/>
-
-                <circle cx="110" cy="10" r="2"/>
-
-            </svg>
-
-        </div>
-
-
-        <!-- TOP RIGHT -->
-
-        <div class="ornament tr">
-
-            <svg viewBox="0 0 120 120">
-
-                <path d="
-                    M110 10
-                    C80 8 52 12 35 28
-                    C17 44 13 64 24 77
-                    C34 89 51 87 57 76
-                    C63 65 54 54 44 57
-                    C32 60 34 76 45 79
-                "/>
-
-                <path class="fine" d="
-                    M95 18
-                    C76 20 59 27 51 40
-                    C44 51 47 61 56 63
-                "/>
-
-                <path class="fine" d="
-                    M70 16
-                    C69 28 75 34 85 34
-                    C94 34 98 27 94 22
-                "/>
-
-                <path d="
-                    M24 77
-                    C14 86 13 99 23 105
-                    C34 111 46 105 45 96
-                    C44 89 36 87 31 92
-                "/>
-
-                <circle cx="110" cy="10" r="2"/>
-
-            </svg>
-
-        </div>
-
-
-        <!-- BOTTOM LEFT -->
-
-        <div class="ornament bl">
-
-            <svg viewBox="0 0 120 120">
-
-                <path d="
-                    M110 10
-                    C80 8 52 12 35 28
-                    C17 44 13 64 24 77
-                    C34 89 51 87 57 76
-                    C63 65 54 54 44 57
-                    C32 60 34 76 45 79
-                "/>
-
-                <path class="fine" d="
-                    M95 18
-                    C76 20 59 27 51 40
-                    C44 51 47 61 56 63
-                "/>
-
-                <path class="fine" d="
-                    M70 16
-                    C69 28 75 34 85 34
-                    C94 34 98 27 94 22
-                "/>
-
-                <path d="
-                    M24 77
-                    C14 86 13 99 23 105
-                    C34 111 46 105 45 96
-                    C44 89 36 87 31 92
-                "/>
-
-                <circle cx="110" cy="10" r="2"/>
-
-            </svg>
-
-        </div>
-
-
-        <!-- BOTTOM RIGHT -->
-
-        <div class="ornament br">
-
-            <svg viewBox="0 0 120 120">
-
-                <path d="
-                    M110 10
-                    C80 8 52 12 35 28
-                    C17 44 13 64 24 77
-                    C34 89 51 87 57 76
-                    C63 65 54 54 44 57
-                    C32 60 34 76 45 79
-                "/>
-
-                <path class="fine" d="
-                    M95 18
-                    C76 20 59 27 51 40
-                    C44 51 47 61 56 63
-                "/>
-
-                <path class="fine" d="
-                    M70 16
-                    C69 28 75 34 85 34
-                    C94 34 98 27 94 22
-                "/>
-
-                <path d="
-                    M24 77
-                    C14 86 13 99 23 105
-                    C34 111 46 105 45 96
-                    C44 89 36 87 31 92
-                "/>
-
-                <circle cx="110" cy="10" r="2"/>
-
-            </svg>
-
-        </div>
-
-
-        <!-- CENTER -->
-
-        <div class="center-gem"></div>
-
+        <img
+            src="cloud.png"
+            class="cloud cloud-left"
+            alt=""
+        >
 
     </div>
 
@@ -769,11 +441,11 @@ body::after {
     <div class="title">
 
         <h1>
-            THE DREAMING SKY
+            WELCOME, DREAMER.
         </h1>
 
         <p>
-            Somewhere between the stars, stories are waiting.
+            The clouds keep more than rain.
         </p>
 
     </div>
