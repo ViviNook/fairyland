@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,12 +10,12 @@
 <title>The Dreaming Sky</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
 <link
     href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400&display=swap"
-    rel="stylesheet">
-
+    rel="stylesheet"
+>
 
 <style>
 
@@ -33,11 +34,9 @@ body {
 
 }
 
-
 body {
 
     background:
-
         radial-gradient(
             ellipse at center,
             #142d52 0%,
@@ -140,7 +139,7 @@ body::before {
 
 
 /* =========================================================
-   TEAL AURORA — EDGES ONLY
+   TEAL AURORA
    ========================================================= */
 
 body::after {
@@ -212,31 +211,24 @@ body::after {
 
     pointer-events: none;
 
-    z-index: 2;
+    z-index: 3;
 
 }
 
 
 /* =========================================================
-   CLOUD
-
-   The cloud is deliberately kept in the upper-left
-   "safe zone", away from the central text.
+   ALL CLOUDS
    ========================================================= */
 
 .cloud {
 
     position: absolute;
 
-    width: 700px;
-
     height: auto;
 
     pointer-events: none;
 
     user-select: none;
-
-    opacity: .92;
 
     filter:
         drop-shadow(
@@ -247,39 +239,124 @@ body::after {
 
 
 /* =========================================================
-   CLOUD POSITION
-
-   Partly outside the viewport.
-
-   It cannot touch the central title because the title
-   occupies the middle of the screen.
+   CLOUD 1
+   Large — upper left
    ========================================================= */
 
-.cloud-left {
+.cloud-one {
 
-    left: -145px;
+    width: 850px;
 
-    top: 4%;
+    left: -300px;
 
-}
+    top: -40px;
 
-
-/* =========================================================
-   CLOUD FLOAT
-   ========================================================= */
-
-.cloud-left {
+    opacity: .94;
 
     animation:
-        cloudFloat
-        9s
+        floatOne
+        11s
         ease-in-out
         infinite;
 
 }
 
 
-@keyframes cloudFloat {
+/* =========================================================
+   CLOUD 2
+   Large — upper right
+   ========================================================= */
+
+.cloud-two {
+
+    width: 650px;
+
+    right: -260px;
+
+    top: 4%;
+
+    opacity: .82;
+
+    transform: scaleX(-1);
+
+    animation:
+        floatTwo
+        13s
+        ease-in-out
+        infinite;
+
+}
+
+
+/* =========================================================
+   CLOUD 3
+   Same cloud asset, smaller
+   Lower left
+   ========================================================= */
+
+.cloud-three {
+
+    width: 470px;
+
+    left: -180px;
+
+    bottom: 3%;
+
+    opacity: .55;
+
+    filter:
+        blur(1px)
+        drop-shadow(
+            0 10px 18px rgba(0,0,0,.10)
+        );
+
+    animation:
+        floatThree
+        15s
+        ease-in-out
+        infinite;
+
+}
+
+
+/* =========================================================
+   CLOUD 4
+   Same cloud asset, smaller
+   Lower right
+   ========================================================= */
+
+.cloud-four {
+
+    width: 420px;
+
+    right: -150px;
+
+    bottom: 12%;
+
+    opacity: .48;
+
+    transform: scaleX(-1);
+
+    filter:
+        blur(1px)
+        drop-shadow(
+            0 10px 18px rgba(0,0,0,.10)
+        );
+
+    animation:
+        floatFour
+        17s
+        ease-in-out
+        infinite;
+
+}
+
+
+/* =========================================================
+   CLOUD ANIMATIONS
+   ========================================================= */
+
+@keyframes floatOne {
 
     0%,
     100% {
@@ -292,7 +369,71 @@ body::after {
     50% {
 
         transform:
-            translate3d(10px, -6px, 0);
+            translate3d(18px, -9px, 0);
+
+    }
+
+}
+
+
+@keyframes floatTwo {
+
+    0%,
+    100% {
+
+        transform:
+            scaleX(-1)
+            translate3d(0, 0, 0);
+
+    }
+
+    50% {
+
+        transform:
+            scaleX(-1)
+            translate3d(-20px, 8px, 0);
+
+    }
+
+}
+
+
+@keyframes floatThree {
+
+    0%,
+    100% {
+
+        transform:
+            translate3d(0, 0, 0);
+
+    }
+
+    50% {
+
+        transform:
+            translate3d(14px, -7px, 0);
+
+    }
+
+}
+
+
+@keyframes floatFour {
+
+    0%,
+    100% {
+
+        transform:
+            scaleX(-1)
+            translate3d(0, 0, 0);
+
+    }
+
+    50% {
+
+        transform:
+            scaleX(-1)
+            translate3d(-15px, -6px, 0);
 
     }
 
@@ -300,7 +441,7 @@ body::after {
 
 
 /* =========================================================
-   TITLE SAFE ZONE
+   TITLE
    ========================================================= */
 
 .title {
@@ -319,16 +460,8 @@ body::after {
 
     z-index: 10;
 
-    /*
-       The title is always above the cloud layer.
-       */
-
 }
 
-
-/* =========================================================
-   TITLE
-   ========================================================= */
 
 .title h1 {
 
@@ -372,17 +505,35 @@ body::after {
 
 @media (max-width: 700px) {
 
-    .cloud {
+    .cloud-one {
 
-        width: 280px;
+        width: 560px;
+
+        left: -220px;
 
     }
 
-    .cloud-left {
+    .cloud-two {
 
-        left: -110px;
+        width: 450px;
 
-        top: 3%;
+        right: -200px;
+
+    }
+
+    .cloud-three {
+
+        width: 330px;
+
+        left: -140px;
+
+    }
+
+    .cloud-four {
+
+        width: 300px;
+
+        right: -120px;
 
     }
 
@@ -415,20 +566,39 @@ body::after {
 
 <body>
 
-
 <div class="sky">
 
 
     <!-- =====================================================
-         CLOUD
+         CLOUDS
          ===================================================== -->
 
     <div class="cloud-layer">
-<img
-    src="alienized-clouds-7081496.png"
-    class="cloud cloud-left"
-    alt=""
->
+
+        <img
+            src="alienized-clouds-7081496.png"
+            class="cloud cloud-one"
+            alt=""
+        >
+
+        <img
+            src="95c-cloud-2421760.png"
+            class="cloud cloud-two"
+            alt=""
+        >
+
+        <img
+            src="alienized-clouds-7081496.png"
+            class="cloud cloud-three"
+            alt=""
+        >
+
+        <img
+            src="95c-cloud-2421760.png"
+            class="cloud cloud-four"
+            alt=""
+        >
+
     </div>
 
 
@@ -438,9 +608,7 @@ body::after {
 
     <div class="title">
 
-        <h1>
-            WELCOME, DREAMER.
-        </h1>
+        <h1>WELCOME, DREAMER.</h1>
 
         <p>
             The clouds keep more than rain.
@@ -451,7 +619,7 @@ body::after {
 
 </div>
 
-
 </body>
 
 </html>
+```
