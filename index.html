@@ -181,29 +181,27 @@
 
         /* Subtitle and button follow the same wind */
         .wind-blown p,
-        .wind-blown .enter {
-            animation: elementWind 1.35s ease-in forwards;
-        }
+.wind-blown .enter {
+    animation: elementWind 1.35s ease-in forwards;
+    animation-delay: 0s;
+}
 
-        .wind-blown p {
-            animation-delay: 0.08s;
-        }
+     @keyframes elementWind {
+    0% {
+        transform: translateX(0) rotate(0deg);
+        opacity: 1;
+    }
 
-        .wind-blown .enter {
-            animation-delay: 0.13s;
-        }
+    15% {
+        transform: translateX(8vw) rotate(3deg);
+        opacity: 1;
+    }
 
-        @keyframes elementWind {
-            0% {
-                transform: translateX(0) rotate(0deg);
-                opacity: 1;
-            }
-
-            100% {
-                transform: translateX(120vw) rotate(8deg);
-                opacity: 0;
-            }
-        }
+    100% {
+        transform: translateX(120vw) rotate(8deg);
+        opacity: 0;
+    }
+}
 
         @keyframes breathe {
             0%, 100% {
