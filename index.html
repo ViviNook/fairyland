@@ -6,6 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>The Dreaming Sky</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400&display=swap" rel="stylesheet">
+
     <style>
         html, body {
             margin: 0;
@@ -14,38 +19,69 @@
             overflow: hidden;
         }
 
-    body {
-background: radial-gradient(
-    ellipse at center,
-    #20395d 0%,
-    #243f61 45%,
-    #304564 72%,
-    #46506b 88%,
-    #5d5870 100%
-);
-    color: #fff8e8;
-    font-family: Georgia, serif;
-}
+        body {
+            background:
+                radial-gradient(
+                    ellipse at 50% 45%,
+                    #314d73 0%,
+                    #243f61 42%,
+                    #20395d 68%,
+                    #394863 86%,
+                    #5d5870 100%
+                );
 
-  body::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-    pointer-events: none;
+            color: #fff8e8;
+            font-family: "Cormorant Garamond", Georgia, serif;
+        }
 
-    background-image:
-        radial-gradient(circle, rgba(255,255,255,0.55) 0.5px, transparent 0.8px),
-        radial-gradient(circle, rgba(255,255,255,0.35) 0.4px, transparent 0.7px),
-        radial-gradient(circle, rgba(255,255,255,0.45) 0.5px, transparent 0.8px);
+        /* Soft distant stars */
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
 
-    background-size: 130px 150px, 190px 210px, 250px 230px;
-    background-position: 20px 40px, 80px 120px, 150px 70px;
+            background-image:
+                radial-gradient(circle, rgba(255,255,255,0.8) 0.7px, transparent 1px),
+                radial-gradient(circle, rgba(255,255,255,0.55) 0.5px, transparent 0.9px),
+                radial-gradient(circle, rgba(255,238,190,0.5) 0.8px, transparent 1.2px),
+                radial-gradient(circle, rgba(255,255,255,0.35) 0.5px, transparent 0.8px);
 
-}
-     .welcome {
-    width: 100%;
-    height: 100vh;
-    transition: opacity 2s ease;
+            background-size:
+                150px 170px,
+                210px 230px,
+                280px 260px,
+                370px 340px;
+
+            background-position:
+                20px 40px,
+                90px 130px,
+                160px 70px,
+                40px 180px;
+
+            opacity: 0.9;
+        }
+
+        /* A very subtle central glow for depth */
+        body::after {
+            content: "";
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+
+            background:
+                radial-gradient(
+                    ellipse at center,
+                    rgba(255,255,255,0.06),
+                    transparent 55%
+                );
+
+            opacity: 0.8;
+        }
+
+        .welcome {
+            width: 100%;
+            height: 100vh;
 
             display: flex;
             flex-direction: column;
@@ -58,22 +94,28 @@ background: radial-gradient(
         }
 
         h1 {
-            font-size: 48px;
-            font-weight: normal;
-            letter-spacing: 6px;
-            margin: 0 0 20px;
+            font-size: 54px;
+            font-weight: 300;
+            letter-spacing: 7px;
+            margin: 0 0 16px;
+
+            text-shadow:
+                0 0 18px rgba(255,255,255,0.08);
         }
 
         p {
-            font-size: 18px;
+            font-size: 20px;
             line-height: 1.8;
-            opacity: 0.8;
+            letter-spacing: 1px;
+            opacity: 0.78;
+
+            margin: 0;
         }
 
         .enter {
             margin-top: 25px;
 
-            padding: 13px 28px;
+            padding: 12px 28px;
 
             border: 1px solid rgba(255,255,255,0.5);
             border-radius: 30px;
@@ -82,133 +124,140 @@ background: radial-gradient(
 
             color: white;
 
-            font-family: Georgia, serif;
-            font-size: 15px;
+            font-family: "Cormorant Garamond", Georgia, serif;
+            font-size: 17px;
+            letter-spacing: 1px;
 
             cursor: pointer;
+
+            transition:
+                background 0.3s ease,
+                transform 0.3s ease;
         }
 
         .enter:hover {
             background: rgba(255,255,255,0.18);
+            transform: translateY(-2px);
         }
-@keyframes whoosh {
-    0% {
-        transform: translateX(0) rotate(0deg);
-        opacity: 1;
-    }
 
-    100% {
-        transform: translateX(120vw) rotate(8deg);
-        opacity: 0;
-    }
-}
-       .wind-title span {
-    display: inline-block;
-    transform-origin: center bottom;
-}
-    .wind-blown .wind-title span {
-  animation: letterWind 1.5s linear forwards;
-    animation-delay: calc(var(--i) * 0.04s);
-}
-     .wind-title span:nth-child(1)  { --wind-x: 115vw; --wind-y: -4vh;  --wind-rotate: 20deg; --wind-skew: 8deg; }
-.wind-title span:nth-child(2)  { --wind-x: 120vw; --wind-y: 2vh;   --wind-rotate: 16deg; --wind-skew: 6deg; }
-.wind-title span:nth-child(3)  { --wind-x: 118vw; --wind-y: -6vh;  --wind-rotate: 22deg; --wind-skew: 9deg; }
-.wind-title span:nth-child(4)  { --wind-x: 123vw; --wind-y: 3vh;   --wind-rotate: 18deg; --wind-skew: 7deg; }
-.wind-title span:nth-child(5)  { --wind-x: 117vw; --wind-y: -3vh;  --wind-rotate: 21deg; --wind-skew: 8deg; }
-.wind-title span:nth-child(6)  { --wind-x: 122vw; --wind-y: -5vh;  --wind-rotate: 19deg; --wind-skew: 7deg; }
-.wind-title span:nth-child(7)  { --wind-x: 119vw; --wind-y: 2vh;   --wind-rotate: 23deg; --wind-skew: 8deg; }
-.wind-title span:nth-child(8)  { --wind-x: 121vw; --wind-y: -4vh;  --wind-rotate: 17deg; --wind-skew: 7deg; }
-.wind-title span:nth-child(9)  { --wind-x: 124vw; --wind-y: 3vh;   --wind-rotate: 20deg; --wind-skew: 8deg; }
-.wind-title span:nth-child(10) { --wind-x: 118vw; --wind-y: -5vh;  --wind-rotate: 22deg; --wind-skew: 9deg; }
-.wind-title span:nth-child(11) { --wind-x: 123vw; --wind-y: 2vh;   --wind-rotate: 18deg; --wind-skew: 6deg; }
-.wind-title span:nth-child(12) { --wind-x: 120vw; --wind-y: -3vh;  --wind-rotate: 21deg; --wind-skew: 8deg; }
-.wind-title span:nth-child(13) { --wind-x: 122vw; --wind-y: -4vh;  --wind-rotate: 19deg; --wind-skew: 7deg; }
-.wind-title span:nth-child(14) { --wind-x: 119vw; --wind-y: 3vh;   --wind-rotate: 22deg; --wind-skew: 8deg; }
-.wind-title span:nth-child(15) { --wind-x: 124vw; --wind-y: -2vh;  --wind-rotate: 17deg; --wind-skew: 6deg; }
-.wind-title span:nth-child(16) { --wind-x: 121vw; --wind-y: 4vh;   --wind-rotate: 20deg; --wind-skew: 7deg; }
-@keyframes letterWind {
-    0% {
-        transform: translate(0, 0) rotate(0deg) skewX(0deg);
-        opacity: 1;
-    }
+        /* The original simple wind trajectory */
+        .wind-title span {
+            display: inline-block;
+        }
 
-    15% {
-        transform: translate(8vw, -1vh) rotate(3deg) skewX(2deg);
-        opacity: 1;
-    }
+        .wind-blown .wind-title span {
+            animation: letterWind 1.35s ease-in forwards;
+            animation-delay: calc(var(--i) * 0.035s);
+        }
 
-    100% {
-        transform:
-            translate(var(--wind-x), var(--wind-y))
-            rotate(var(--wind-rotate))
-            skewX(var(--wind-skew));
-        opacity: 0;
-    }
-}
+        .wind-title span:nth-child(1)  { --i: 0; }
+        .wind-title span:nth-child(2)  { --i: 1; }
+        .wind-title span:nth-child(3)  { --i: 2; }
+        .wind-title span:nth-child(4)  { --i: 3; }
+        .wind-title span:nth-child(5)  { --i: 4; }
+        .wind-title span:nth-child(6)  { --i: 5; }
+        .wind-title span:nth-child(7)  { --i: 6; }
+        .wind-title span:nth-child(8)  { --i: 7; }
+        .wind-title span:nth-child(9)  { --i: 8; }
+        .wind-title span:nth-child(10) { --i: 9; }
+        .wind-title span:nth-child(11) { --i: 10; }
+        .wind-title span:nth-child(12) { --i: 11; }
+        .wind-title span:nth-child(13) { --i: 12; }
+        .wind-title span:nth-child(14) { --i: 13; }
+        .wind-title span:nth-child(15) { --i: 14; }
+        .wind-title span:nth-child(16) { --i: 15; }
+
+        @keyframes letterWind {
+            0% {
+                transform: translateX(0) rotate(0deg);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateX(120vw) rotate(8deg);
+                opacity: 0;
+            }
+        }
+
+        /* Subtitle and button follow the same wind */
+        .wind-blown p,
+        .wind-blown .enter {
+            animation: elementWind 1.35s ease-in forwards;
+        }
+
+        .wind-blown p {
+            animation-delay: 0.08s;
+        }
+
+        .wind-blown .enter {
+            animation-delay: 0.13s;
+        }
+
+        @keyframes elementWind {
+            0% {
+                transform: translateX(0) rotate(0deg);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateX(120vw) rotate(8deg);
+                opacity: 0;
+            }
+        }
+
         @keyframes breathe {
-    0%, 100% {
-        transform: translateY(0);
-    }
+            0%, 100% {
+                transform: translateY(0);
+            }
 
-    50% {
-        transform: translateY(-8px);
-    }
-    }
-             
-    .wispy-cloud {
-    position: fixed;
-    width: 360px;
-    height: 120px;
-    top: 16%;
-    left: 10%;
-    opacity: 0.75;
-    filter: blur(8px);
-    transform: rotate(-7deg);
-    
-    background:
-        radial-gradient(ellipse at 15% 65%, rgba(255,255,255,0.35) 0%, transparent 42%),
-        radial-gradient(ellipse at 35% 35%, rgba(255,255,255,0.28) 0%, transparent 45%),
-        radial-gradient(ellipse at 55% 55%, rgba(255,255,255,0.32) 0%, transparent 48%),
-        radial-gradient(ellipse at 78% 35%, rgba(255,255,255,0.25) 0%, transparent 45%);
-}
-        .cloud-one {
-    top: 16%;
-    left: 10%;
-}
-</style>
+            50% {
+                transform: translateY(-8px);
+            }
+        }
+    </style>
 </head>
 
 <body>
-    <audio id="windSound" src="449991__djt4nn3r__whoosh_long_high.wav"></audio>
+
+    <audio
+        id="windSound"
+        src="449991__djt4nn3r__whoosh_long_high.wav"
+        preload="auto">
+    </audio>
+
     <div class="welcome">
 
-     <h1 class="wind-title">
-    <span>W</span><span>E</span><span>L</span><span>C</span><span>O</span><span>M</span><span>E</span>
-    <span>,</span>
-    <span>D</span><span>R</span><span>E</span><span>A</span><span>M</span><span>E</span><span>R</span><span>.</span>
-</h1>
+        <h1 class="wind-title">
+            <span>W</span><span>E</span><span>L</span><span>C</span><span>O</span><span>M</span><span>E</span>
+            <span>,</span>
+            <span>D</span><span>R</span><span>E</span><span>A</span><span>M</span><span>E</span><span>R</span><span>.</span>
+        </h1>
 
         <p>
-    The clouds keep more than rain.
-</p>
+            The clouds keep more than rain.
+        </p>
 
-       <button class="enter" onclick="enterSky()">
-    ENTER THE SKY ☁
-</button>
+        <button class="enter" onclick="enterSky()">
+            ENTER THE SKY ☁
+        </button>
 
     </div>
-    <div class="wispy-cloud cloud-one"></div>
-<script>
-function enterSky() {
-    const welcome = document.querySelector(".welcome");
-    const wind = document.getElementById("windSound");
 
-    wind.currentTime = 0;
-wind.play().catch(error => console.log(error));
+    <script>
+        function enterSky() {
+            const welcome = document.querySelector(".welcome");
+            const wind = document.getElementById("windSound");
 
-    welcome.classList.add("wind-blown");
-}
-</script>
+            /* Start the sound just before the visual movement */
+            wind.currentTime = 0;
+            wind.play().catch(error => console.log(error));
+
+            setTimeout(() => {
+                welcome.classList.add("wind-blown");
+            }, 80);
+        }
+    </script>
+
 </body>
 
 </html>
