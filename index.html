@@ -180,11 +180,44 @@
         }
 
         /* Subtitle and button follow the same wind */
-        .wind-blown p,
-.wind-blown .enter {
-    animation: elementWind 1.35s ease-in forwards;
-    animation-delay: 0s;
+       .wind-subtitle span {
+    display: inline-block;
+    transform-origin: center bottom;
 }
+
+.wind-blown .wind-subtitle span {
+    animation: letterWind 1.35s linear forwards;
+    animation-delay: calc(var(--i) * 0.035s);
+}
+        .wind-subtitle span:nth-child(1)  { --i: 0; }
+.wind-subtitle span:nth-child(2)  { --i: 1; }
+.wind-subtitle span:nth-child(3)  { --i: 2; }
+.wind-subtitle span:nth-child(4)  { --i: 3; }
+.wind-subtitle span:nth-child(5)  { --i: 4; }
+.wind-subtitle span:nth-child(6)  { --i: 5; }
+.wind-subtitle span:nth-child(7)  { --i: 6; }
+.wind-subtitle span:nth-child(8)  { --i: 7; }
+.wind-subtitle span:nth-child(9)  { --i: 8; }
+.wind-subtitle span:nth-child(10) { --i: 9; }
+.wind-subtitle span:nth-child(11) { --i: 10; }
+.wind-subtitle span:nth-child(12) { --i: 11; }
+.wind-subtitle span:nth-child(13) { --i: 12; }
+.wind-subtitle span:nth-child(14) { --i: 13; }
+.wind-subtitle span:nth-child(15) { --i: 14; }
+.wind-subtitle span:nth-child(16) { --i: 15; }
+.wind-subtitle span:nth-child(17) { --i: 16; }
+.wind-subtitle span:nth-child(18) { --i: 17; }
+.wind-subtitle span:nth-child(19) { --i: 18; }
+.wind-subtitle span:nth-child(20) { --i: 19; }
+.wind-subtitle span:nth-child(21) { --i: 20; }
+.wind-subtitle span:nth-child(22) { --i: 21; }
+.wind-subtitle span:nth-child(23) { --i: 22; }
+.wind-subtitle span:nth-child(24) { --i: 23; }
+.wind-subtitle span:nth-child(25) { --i: 24; }
+.wind-subtitle span:nth-child(26) { --i: 25; }
+.wind-subtitle span:nth-child(27) { --i: 26; }
+.wind-subtitle span:nth-child(28) { --i: 27; }
+.wind-subtitle span:nth-child(29) { --i: 28; }
 
      @keyframes elementWind {
     0% {
@@ -231,9 +264,19 @@
             <span>D</span><span>R</span><span>E</span><span>A</span><span>M</span><span>E</span><span>R</span><span>.</span>
         </h1>
 
-        <p>
-            The clouds keep more than rain.
-        </p>
+    <p class="wind-subtitle">
+    <span>T</span><span>h</span><span>e</span>
+    <span> </span>
+    <span>c</span><span>l</span><span>o</span><span>u</span><span>d</span><span>s</span>
+    <span> </span>
+    <span>k</span><span>e</span><span>e</span><span>p</span>
+    <span> </span>
+    <span>m</span><span>o</span><span>r</span><span>e</span>
+    <span> </span>
+    <span>t</span><span>h</span><span>a</span><span>n</span>
+    <span> </span>
+    <span>r</span><span>a</span><span>i</span><span>n</span><span>.</span>
+</p>
 
         <button class="enter" onclick="enterSky()">
             ENTER THE SKY ☁
