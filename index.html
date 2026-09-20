@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -17,35 +18,96 @@
 
     <style>
 
-        html, body {
+        /* =====================================================
+           BASE
+           ===================================================== */
+
+        html,
+        body {
+
             margin: 0;
             width: 100%;
             height: 100%;
+
             overflow: hidden;
+
         }
 
 
-        /* =====================================================
-           DEEP MIDNIGHT BLUE
-           ===================================================== */
-
         body {
+
             background:
+
                 radial-gradient(
-                    ellipse at 50% 45%,
-                    #314d73 0%,
-                    #243f61 42%,
-                    #20395d 68%,
-                    #394863 86%,
-                    #5d5870 100%
+                    ellipse at center,
+                    #142d52 0%,
+                    #0d2445 38%,
+                    #081b37 68%,
+                    #06152d 100%
                 );
 
-            color: #fff8e8;
+            color: #fffaf0;
 
             font-family:
                 "Cormorant Garamond",
                 Georgia,
                 serif;
+
+        }
+
+
+        /* =====================================================
+           DEEP TEAL AURORA — EDGES
+           ===================================================== */
+
+        body::after {
+
+            content: "";
+
+            position: fixed;
+
+            inset: -15%;
+
+            pointer-events: none;
+
+            background:
+
+                /* LEFT TEAL */
+                radial-gradient(
+                    ellipse at 0% 50%,
+                    rgba(37, 211, 206, 0.20) 0%,
+                    rgba(24, 175, 185, 0.12) 14%,
+                    rgba(20, 140, 170, 0.05) 27%,
+                    transparent 42%
+                ),
+
+                /* RIGHT TEAL */
+                radial-gradient(
+                    ellipse at 100% 48%,
+                    rgba(53, 216, 209, 0.18) 0%,
+                    rgba(30, 174, 190, 0.10) 15%,
+                    rgba(20, 120, 170, 0.04) 28%,
+                    transparent 43%
+                ),
+
+                /* TOP */
+                radial-gradient(
+                    ellipse at 50% 0%,
+                    rgba(40, 180, 205, 0.08),
+                    transparent 40%
+                ),
+
+                /* VERY SOFT CENTER LIGHT */
+                radial-gradient(
+                    ellipse at center,
+                    rgba(170, 210, 255, 0.045),
+                    transparent 58%
+                );
+
+            filter: blur(18px);
+
+            opacity: 1;
+
         }
 
 
@@ -54,113 +116,101 @@
            ===================================================== */
 
         body::before {
+
             content: "";
 
             position: fixed;
+
             inset: 0;
 
             pointer-events: none;
 
             background-image:
 
-                /* tiny distant stars */
+                /* tiny stars */
                 radial-gradient(
                     circle,
-                    rgba(255,255,255,0.75) 0.5px,
+                    rgba(255,255,255,0.80) 0.45px,
                     transparent 0.9px
                 ),
 
                 radial-gradient(
                     circle,
-                    rgba(220,230,255,0.55) 0.5px,
-                    transparent 0.9px
+                    rgba(215,235,255,0.75) 0.5px,
+                    transparent 1px
+                ),
+
+                radial-gradient(
+                    circle,
+                    rgba(255,248,220,0.70) 0.55px,
+                    transparent 1px
+                ),
+
+                /* small stars */
+                radial-gradient(
+                    circle,
+                    rgba(255,255,255,0.75) 0.8px,
+                    transparent 1.3px
+                ),
+
+                radial-gradient(
+                    circle,
+                    rgba(180,225,255,0.65) 0.8px,
+                    transparent 1.4px
+                ),
+
+                radial-gradient(
+                    circle,
+                    rgba(255,238,190,0.65) 0.9px,
+                    transparent 1.5px
                 ),
 
                 /* medium stars */
                 radial-gradient(
                     circle,
-                    rgba(255,238,190,0.65) 0.8px,
-                    transparent 1.2px
-                ),
-
-                radial-gradient(
-                    circle,
-                    rgba(255,255,255,0.55) 0.9px,
-                    transparent 1.4px
-                ),
-
-                /* slightly closer stars */
-                radial-gradient(
-                    circle,
-                    rgba(255,245,215,0.65) 1.2px,
+                    rgba(255,255,255,0.85) 1.1px,
                     transparent 1.8px
                 ),
 
                 radial-gradient(
                     circle,
-                    rgba(200,220,255,0.45) 1.4px,
-                    transparent 2px
+                    rgba(180,240,240,0.65) 1px,
+                    transparent 1.8px
+                ),
+
+                /* occasional bright stars */
+                radial-gradient(
+                    circle,
+                    rgba(255,250,225,0.95) 1.5px,
+                    transparent 2.5px
                 );
 
             background-size:
-                85px 95px,
-                125px 140px,
-                175px 190px,
-                230px 250px,
-                330px 350px,
-                470px 500px;
+
+                47px 53px,
+                63px 71px,
+                79px 91px,
+                103px 117px,
+                137px 151px,
+                167px 181px,
+                211px 229px,
+                271px 293px,
+                389px 421px;
 
             background-position:
-                20px 30px,
-                80px 110px,
-                150px 70px,
-                40px 180px,
-                210px 100px,
-                70px 280px;
 
-            opacity: 0.9;
-        }
+                13px 21px,
+                41px 67px,
+                73px 11px,
+                101px 89px,
+                19px 143px,
+                157px 37px,
+                61px 191px,
+                233px 83px,
+                91px 271px;
 
+            opacity: 0.92;
 
-        /* =====================================================
-           SUBTLE AURORA / ABYSS GLOW
-           ===================================================== */
-
-        body::after {
-            content: "";
-
-            position: fixed;
-            inset: 0;
-
-            pointer-events: none;
-
-            background:
-
-                radial-gradient(
-                    ellipse at 0% 50%,
-                    rgba(80,190,210,0.07),
-                    transparent 32%
-                ),
-
-                radial-gradient(
-                    ellipse at 100% 45%,
-                    rgba(100,130,230,0.07),
-                    transparent 32%
-                ),
-
-                radial-gradient(
-                    ellipse at 50% 0%,
-                    rgba(80,170,220,0.035),
-                    transparent 35%
-                ),
-
-                radial-gradient(
-                    ellipse at center,
-                    rgba(255,255,255,0.06),
-                    transparent 55%
-                );
-
-            opacity: 0.9;
         }
 
 
@@ -169,19 +219,26 @@
            ===================================================== */
 
         .welcome {
+
             width: 100%;
             height: 100vh;
 
             display: flex;
+
             flex-direction: column;
 
             justify-content: center;
+
             align-items: center;
 
             text-align: center;
 
             animation:
-                breathe 6s ease-in-out infinite;
+                breathe
+                6s
+                ease-in-out
+                infinite;
+
         }
 
 
@@ -190,6 +247,7 @@
            ===================================================== */
 
         h1 {
+
             font-size: 54px;
 
             font-weight: 300;
@@ -198,9 +256,14 @@
 
             margin: 0 0 16px;
 
+            color: #fffdf5;
+
             text-shadow:
-                0 0 18px rgba(255,255,255,0.08),
-                0 0 35px rgba(150,190,255,0.05);
+
+                0 0 15px rgba(255,255,255,0.12),
+
+                0 0 35px rgba(170,210,255,0.08);
+
         }
 
 
@@ -209,6 +272,7 @@
            ===================================================== */
 
         p {
+
             font-size: 20px;
 
             line-height: 1.8;
@@ -218,6 +282,7 @@
             opacity: 0.78;
 
             margin: 0;
+
         }
 
 
@@ -226,17 +291,18 @@
            ===================================================== */
 
         .enter {
+
             margin-top: 25px;
 
             padding: 12px 28px;
 
             border:
-                1px solid rgba(255,255,255,0.5);
+                1px solid rgba(255,255,255,0.48);
 
             border-radius: 30px;
 
             background:
-                rgba(255,255,255,0.08);
+                rgba(255,255,255,0.065);
 
             color: white;
 
@@ -252,79 +318,168 @@
             cursor: pointer;
 
             transition:
+
                 background 0.3s ease,
-                transform 0.3s ease;
+
+                transform 0.3s ease,
+
+                box-shadow 0.3s ease;
+
         }
 
 
         .enter:hover {
+
             background:
-                rgba(255,255,255,0.18);
+                rgba(255,255,255,0.14);
 
             transform:
                 translateY(-2px);
+
+            box-shadow:
+                0 0 22px rgba(100,220,220,0.10);
+
         }
 
 
         /* =====================================================
-           EVERYTHING LEAVES AS ONE ENTITY
+           THE TEXT LEAVES AS ONE WHOLE OBJECT
            ===================================================== */
 
-       
-.wind-blown .wind-title,
-.wind-blown .wind-subtitle,
-.wind-blown .enter {
-    animation: yeetSideways 1.15s cubic-bezier(0.65, 0, 1, 0.4) forwards;
-}
+        .wind-title,
+        .wind-subtitle,
+        .enter {
 
-@keyframes yeetSideways {
+            will-change: transform, opacity;
 
-    0% {
-        transform: translateX(0);
-        opacity: 1;
-    }
+        }
 
-    55% {
-        transform: translateX(35vw);
-        opacity: 1;
-    }
 
-    100% {
-        transform: translateX(130vw);
-        opacity: 0;
-    }
-}
         /* =====================================================
-           MAGIC CARPET / STIFF SHEET MOTION
+           SMOOTH SIDEWAYS YEET
 
-           Slight bend
-           Slight mirror-like flip
-           Then WHOOSH
+           IMPORTANT:
+           Almost-linear movement = no weird hesitation.
+
+           The tiny cubic curve only gives it a gentle
+           beginning and ending without that "STOP... GO"
+           feeling.
            ===================================================== */
 
-       
-        
-          
+        .wind-blown .wind-title,
+        .wind-blown .wind-subtitle,
+        .wind-blown .enter {
+
+            animation:
+
+                yeetSideways
+                1.35s
+                cubic-bezier(0.25, 0.92, 0.45, 1)
+                forwards;
+
+        }
+
+
+        @keyframes yeetSideways {
+
+            0% {
+
+                transform:
+                    translate3d(0, 0, 0);
+
+                opacity: 1;
+
+            }
+
+
+            15% {
+
+                transform:
+                    translate3d(11vw, 0, 0);
+
+                opacity: 1;
+
+            }
+
+
+            30% {
+
+                transform:
+                    translate3d(27vw, 0, 0);
+
+                opacity: 0.99;
+
+            }
+
+
+            50% {
+
+                transform:
+                    translate3d(51vw, 0, 0);
+
+                opacity: 0.95;
+
+            }
+
+
+            70% {
+
+                transform:
+                    translate3d(76vw, 0, 0);
+
+                opacity: 0.78;
+
+            }
+
+
+            85% {
+
+                transform:
+                    translate3d(99vw, 0, 0);
+
+                opacity: 0.42;
+
+            }
+
+
+            100% {
+
+                transform:
+                    translate3d(132vw, 0, 0);
+
+                opacity: 0;
+
+            }
+
+        }
+
+
         /* =====================================================
-           GENTLE BREATHING
+           GENTLE FLOAT BEFORE ENTER
            ===================================================== */
 
         @keyframes breathe {
 
-            0%, 100% {
+            0%,
+            100% {
+
                 transform:
-                    translateY(0)
-                    scale(1);
+                    translateY(0);
+
             }
 
             50% {
+
                 transform:
-                    translateY(-10px)
-                    scale(1.006);
+                    translateY(-9px);
+
             }
+
         }
 
+
     </style>
+
 </head>
 
 
@@ -332,7 +487,7 @@
 
 
     <!-- =====================================================
-         WIND SOUND
+         WHOOSH
          ===================================================== -->
 
     <audio
@@ -343,31 +498,23 @@
 
 
     <!-- =====================================================
-         WELCOME SCREEN
+         WELCOME
          ===================================================== -->
 
     <div class="welcome">
 
 
         <h1 class="wind-title">
-            <span>W</span><span>E</span><span>L</span><span>C</span><span>O</span><span>M</span><span>E</span>
-            <span>,</span>
-            <span>D</span><span>R</span><span>E</span><span>A</span><span>M</span><span>E</span><span>R</span><span>.</span>
+
+            WELCOME, DREAMER.
+
         </h1>
 
 
         <p class="wind-subtitle">
-            <span>T</span><span>h</span><span>e</span>
-            <span> </span>
-            <span>c</span><span>l</span><span>o</span><span>u</span><span>d</span><span>s</span>
-            <span> </span>
-            <span>k</span><span>e</span><span>e</span><span>p</span>
-            <span> </span>
-            <span>m</span><span>o</span><span>r</span><span>e</span>
-            <span> </span>
-            <span>t</span><span>h</span><span>a</span><span>n</span>
-            <span> </span>
-            <span>r</span><span>a</span><span>i</span><span>n</span><span>.</span>
+
+            The clouds keep more than rain.
+
         </p>
 
 
@@ -394,7 +541,7 @@
                 document.getElementById("windSound");
 
 
-            /* Whoosh begins just before movement */
+            /* Start sound immediately */
 
             wind.currentTime = 0;
 
@@ -403,13 +550,16 @@
             );
 
 
-            setTimeout(() => {
+            /* Tiny delay lets the click register
+               before the visual movement begins */
+
+            requestAnimationFrame(() => {
 
                 welcome.classList.add(
                     "wind-blown"
                 );
 
-            }, 60);
+            });
 
         }
 
