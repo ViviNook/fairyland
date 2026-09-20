@@ -12,6 +12,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400&display=swap" rel="stylesheet">
 
     <style>
+
         html, body {
             margin: 0;
             width: 100%;
@@ -22,19 +23,23 @@
         body {
             background:
                 radial-gradient(
-                    ellipse at 50% 45%,
-                    #314d73 0%,
-                    #243f61 42%,
-                    #20395d 68%,
-                    #394863 86%,
-                    #5d5870 100%
+                    ellipse at 50% 42%,
+                    #263f68 0%,
+                    #182f55 32%,
+                    #102747 58%,
+                    #091b37 78%,
+                    #06142c 100%
                 );
 
             color: #fff8e8;
             font-family: "Cormorant Garamond", Georgia, serif;
         }
 
-        /* Soft distant stars */
+
+        /* =====================================================
+           DEEP SPACE STAR FIELD
+           ===================================================== */
+
         body::before {
             content: "";
             position: fixed;
@@ -42,27 +47,65 @@
             pointer-events: none;
 
             background-image:
-                radial-gradient(circle, rgba(255,255,255,0.8) 0.7px, transparent 1px),
-                radial-gradient(circle, rgba(255,255,255,0.55) 0.5px, transparent 0.9px),
-                radial-gradient(circle, rgba(255,238,190,0.5) 0.8px, transparent 1.2px),
-                radial-gradient(circle, rgba(255,255,255,0.35) 0.5px, transparent 0.8px);
+
+                /* tiny distant stars */
+                radial-gradient(circle,
+                    rgba(255,255,255,0.75) 0.5px,
+                    transparent 0.9px),
+
+                radial-gradient(circle,
+                    rgba(210,225,255,0.65) 0.6px,
+                    transparent 1px),
+
+                /* medium stars */
+                radial-gradient(circle,
+                    rgba(255,248,220,0.85) 0.9px,
+                    transparent 1.4px),
+
+                radial-gradient(circle,
+                    rgba(255,255,255,0.7) 1px,
+                    transparent 1.6px),
+
+                /* slightly larger foreground stars */
+                radial-gradient(circle,
+                    rgba(255,245,210,0.95) 1.3px,
+                    transparent 2px),
+
+                radial-gradient(circle,
+                    rgba(190,215,255,0.8) 1.5px,
+                    transparent 2.3px),
+
+                /* faint huge depth stars */
+                radial-gradient(circle,
+                    rgba(255,255,255,0.35) 2px,
+                    transparent 3px);
 
             background-size:
-                150px 170px,
-                210px 230px,
-                280px 260px,
-                370px 340px;
+                95px 110px,
+                135px 145px,
+                180px 195px,
+                235px 250px,
+                330px 310px,
+                430px 390px,
+                600px 570px;
 
             background-position:
-                20px 40px,
-                90px 130px,
-                160px 70px,
-                40px 180px;
+                10px 20px,
+                80px 110px,
+                150px 40px,
+                30px 180px,
+                210px 90px,
+                50px 260px,
+                300px 170px;
 
-            opacity: 0.9;
+            opacity: 0.95;
         }
 
-        /* A very subtle central glow for depth */
+
+        /* =====================================================
+           CENTRAL DEPTH / ABYSS GLOW
+           ===================================================== */
+
         body::after {
             content: "";
             position: fixed;
@@ -71,13 +114,23 @@
 
             background:
                 radial-gradient(
-                    ellipse at center,
-                    rgba(255,255,255,0.06),
-                    transparent 55%
+                    ellipse at 50% 48%,
+                    rgba(125,165,220,0.10),
+                    transparent 42%
+                ),
+                radial-gradient(
+                    ellipse at 50% 100%,
+                    rgba(4,15,35,0.35),
+                    transparent 65%
                 );
 
-            opacity: 0.8;
+            opacity: 1;
         }
+
+
+        /* =====================================================
+           WELCOME SCREEN
+           ===================================================== */
 
         .welcome {
             width: 100%;
@@ -93,24 +146,34 @@
             animation: breathe 6s ease-in-out infinite;
         }
 
+
         h1 {
             font-size: 54px;
             font-weight: 300;
             letter-spacing: 7px;
+
             margin: 0 0 16px;
 
             text-shadow:
-                0 0 18px rgba(255,255,255,0.08);
+                0 0 18px rgba(255,255,255,0.10),
+                0 0 45px rgba(150,190,255,0.08);
         }
+
 
         p {
             font-size: 20px;
             line-height: 1.8;
             letter-spacing: 1px;
-            opacity: 0.78;
+
+            opacity: 0.80;
 
             margin: 0;
         }
+
+
+        /* =====================================================
+           ENTER BUTTON
+           ===================================================== */
 
         .enter {
             margin-top: 25px;
@@ -135,20 +198,31 @@
                 transform 0.3s ease;
         }
 
+
         .enter:hover {
             background: rgba(255,255,255,0.18);
-            transform: translateY(-2px);
+            transform: translateY(-3px);
         }
 
-        /* The original simple wind trajectory */
+
+        /* =====================================================
+           TITLE — LETTERS FLY OUT
+           ===================================================== */
+
         .wind-title span {
             display: inline-block;
+            transform-origin: center center;
         }
 
+
         .wind-blown .wind-title span {
-            animation: letterWind 1.35s ease-in forwards;
-            animation-delay: calc(var(--i) * 0.035s);
+            animation:
+                titleWind 1.45s cubic-bezier(.35,.05,.25,1) forwards;
+
+            animation-delay:
+                calc(var(--i) * 0.025s);
         }
+
 
         .wind-title span:nth-child(1)  { --i: 0; }
         .wind-title span:nth-child(2)  { --i: 1; }
@@ -167,88 +241,257 @@
         .wind-title span:nth-child(15) { --i: 14; }
         .wind-title span:nth-child(16) { --i: 15; }
 
-        @keyframes letterWind {
+
+        /* =====================================================
+           TITLE WIND MOTION
+           ===================================================== */
+
+        @keyframes titleWind {
+
             0% {
-                transform: translateX(0) rotate(0deg);
+                transform:
+                    translateX(0)
+                    translateY(0)
+                    rotate(0deg)
+                    rotateY(0deg)
+                    scale(1);
+
                 opacity: 1;
             }
 
+            25% {
+                transform:
+                    translateX(15vw)
+                    translateY(-2vh)
+                    rotate(8deg)
+                    rotateY(35deg)
+                    scale(1.02);
+
+                opacity: 1;
+            }
+
+            55% {
+                transform:
+                    translateX(45vw)
+                    translateY(4vh)
+                    rotate(-14deg)
+                    rotateY(110deg)
+                    scale(0.96);
+
+                opacity: 0.8;
+            }
+
+            80% {
+                transform:
+                    translateX(82vw)
+                    translateY(-5vh)
+                    rotate(18deg)
+                    rotateY(180deg)
+                    scale(0.8);
+
+                opacity: 0.35;
+            }
+
             100% {
-                transform: translateX(120vw) rotate(8deg);
+                transform:
+                    translateX(125vw)
+                    translateY(8vh)
+                    rotate(25deg)
+                    rotateY(360deg)
+                    scale(0.65);
+
                 opacity: 0;
             }
         }
 
-        /* Subtitle and button follow the same wind */
-       .wind-subtitle span {
-    display: inline-block;
-    transform-origin: center bottom;
-}
 
-.wind-blown .wind-subtitle span {
-    animation: letterWind 1.35s linear forwards;
-    animation-delay: calc(var(--i) * 0.035s);
-}
-        .wind-subtitle span:nth-child(1)  { --i: 0; }
-.wind-subtitle span:nth-child(2)  { --i: 1; }
-.wind-subtitle span:nth-child(3)  { --i: 2; }
-.wind-subtitle span:nth-child(4)  { --i: 3; }
-.wind-subtitle span:nth-child(5)  { --i: 4; }
-.wind-subtitle span:nth-child(6)  { --i: 5; }
-.wind-subtitle span:nth-child(7)  { --i: 6; }
-.wind-subtitle span:nth-child(8)  { --i: 7; }
-.wind-subtitle span:nth-child(9)  { --i: 8; }
-.wind-subtitle span:nth-child(10) { --i: 9; }
-.wind-subtitle span:nth-child(11) { --i: 10; }
-.wind-subtitle span:nth-child(12) { --i: 11; }
-.wind-subtitle span:nth-child(13) { --i: 12; }
-.wind-subtitle span:nth-child(14) { --i: 13; }
-.wind-subtitle span:nth-child(15) { --i: 14; }
-.wind-subtitle span:nth-child(16) { --i: 15; }
-.wind-subtitle span:nth-child(17) { --i: 16; }
-.wind-subtitle span:nth-child(18) { --i: 17; }
-.wind-subtitle span:nth-child(19) { --i: 18; }
-.wind-subtitle span:nth-child(20) { --i: 19; }
-.wind-subtitle span:nth-child(21) { --i: 20; }
-.wind-subtitle span:nth-child(22) { --i: 21; }
-.wind-subtitle span:nth-child(23) { --i: 22; }
-.wind-subtitle span:nth-child(24) { --i: 23; }
-.wind-subtitle span:nth-child(25) { --i: 24; }
-.wind-subtitle span:nth-child(26) { --i: 25; }
-.wind-subtitle span:nth-child(27) { --i: 26; }
-.wind-subtitle span:nth-child(28) { --i: 27; }
-.wind-subtitle span:nth-child(29) { --i: 28; }
+        /* =====================================================
+           SUBTITLE
+           EACH LETTER MOVES,
+           BUT THEY ALL START AND FINISH TOGETHER
+           ===================================================== */
 
-     @keyframes elementWind {
-    0% {
-        transform: translateX(0) rotate(0deg);
-        opacity: 1;
-    }
+        .wind-subtitle span {
+            display: inline-block;
+            transform-origin: center center;
+        }
 
-    15% {
-        transform: translateX(8vw) rotate(3deg);
-        opacity: 1;
-    }
 
-    100% {
-        transform: translateX(120vw) rotate(8deg);
-        opacity: 0;
-    }
-}
+        .wind-blown .wind-subtitle span {
+            animation:
+                subtitleWind 1.45s cubic-bezier(.35,.05,.25,1) forwards;
+
+            /* NO STAGGER */
+            animation-delay: 0s;
+        }
+
+
+        /* =====================================================
+           SUBTITLE WIND MOTION
+           ===================================================== */
+
+        @keyframes subtitleWind {
+
+            0% {
+                transform:
+                    translateX(0)
+                    translateY(0)
+                    rotate(0deg)
+                    rotateY(0deg)
+                    scale(1);
+
+                opacity: 0.8;
+            }
+
+            25% {
+                transform:
+                    translateX(15vw)
+                    translateY(-3vh)
+                    rotate(-7deg)
+                    rotateY(35deg)
+                    scale(1.03);
+
+                opacity: 0.8;
+            }
+
+            55% {
+                transform:
+                    translateX(47vw)
+                    translateY(5vh)
+                    rotate(13deg)
+                    rotateY(120deg)
+                    scale(0.94);
+
+                opacity: 0.65;
+            }
+
+            80% {
+                transform:
+                    translateX(84vw)
+                    translateY(-6vh)
+                    rotate(-18deg)
+                    rotateY(200deg)
+                    scale(0.78);
+
+                opacity: 0.25;
+            }
+
+            100% {
+                transform:
+                    translateX(125vw)
+                    translateY(7vh)
+                    rotate(25deg)
+                    rotateY(360deg)
+                    scale(0.6);
+
+                opacity: 0;
+            }
+        }
+
+
+        /* =====================================================
+           BUTTON — FLOWY / BENDY / FLIPPING
+           ===================================================== */
+
+        .wind-blown .enter {
+            animation:
+                buttonWind 1.45s cubic-bezier(.35,.05,.25,1) forwards;
+
+            animation-delay: 0s;
+        }
+
+
+        @keyframes buttonWind {
+
+            0% {
+                transform:
+                    translateX(0)
+                    translateY(0)
+                    rotate(0deg)
+                    rotateY(0deg)
+                    skewX(0deg)
+                    scale(1);
+
+                opacity: 1;
+            }
+
+            25% {
+                transform:
+                    translateX(15vw)
+                    translateY(2vh)
+                    rotate(8deg)
+                    rotateY(35deg)
+                    skewX(4deg)
+                    scale(1.03);
+
+                opacity: 1;
+            }
+
+            55% {
+                transform:
+                    translateX(48vw)
+                    translateY(-4vh)
+                    rotate(-12deg)
+                    rotateY(120deg)
+                    skewX(-8deg)
+                    scale(0.95);
+
+                opacity: 0.7;
+            }
+
+            80% {
+                transform:
+                    translateX(85vw)
+                    translateY(6vh)
+                    rotate(17deg)
+                    rotateY(220deg)
+                    skewX(10deg)
+                    scale(0.8);
+
+                opacity: 0.25;
+            }
+
+            100% {
+                transform:
+                    translateX(125vw)
+                    translateY(-7vh)
+                    rotate(28deg)
+                    rotateY(360deg)
+                    skewX(12deg)
+                    scale(0.6);
+
+                opacity: 0;
+            }
+        }
+
+
+        /* =====================================================
+           MORE NOTICEABLE BREATHING
+           ===================================================== */
 
         @keyframes breathe {
+
             0%, 100% {
-                transform: translateY(0);
+                transform:
+                    translateY(0)
+                    scale(1);
             }
 
             50% {
-                transform: translateY(-8px);
+                transform:
+                    translateY(-11px)
+                    scale(1.008);
             }
         }
+
     </style>
 </head>
 
+
 <body>
+
+
+    <!-- WIND SOUND -->
 
     <audio
         id="windSound"
@@ -256,48 +499,120 @@
         preload="auto">
     </audio>
 
+
+    <!-- WELCOME -->
+
     <div class="welcome">
 
+
         <h1 class="wind-title">
-            <span>W</span><span>E</span><span>L</span><span>C</span><span>O</span><span>M</span><span>E</span>
+
+            <span>W</span>
+            <span>E</span>
+            <span>L</span>
+            <span>C</span>
+            <span>O</span>
+            <span>M</span>
+            <span>E</span>
             <span>,</span>
-            <span>D</span><span>R</span><span>E</span><span>A</span><span>M</span><span>E</span><span>R</span><span>.</span>
+
+            <span>D</span>
+            <span>R</span>
+            <span>E</span>
+            <span>A</span>
+            <span>M</span>
+            <span>E</span>
+            <span>R</span>
+            <span>.</span>
+
         </h1>
 
-    <p class="wind-subtitle">
-    <span>T</span><span>h</span><span>e</span>
-    <span> </span>
-    <span>c</span><span>l</span><span>o</span><span>u</span><span>d</span><span>s</span>
-    <span> </span>
-    <span>k</span><span>e</span><span>e</span><span>p</span>
-    <span> </span>
-    <span>m</span><span>o</span><span>r</span><span>e</span>
-    <span> </span>
-    <span>t</span><span>h</span><span>a</span><span>n</span>
-    <span> </span>
-    <span>r</span><span>a</span><span>i</span><span>n</span><span>.</span>
-</p>
+
+        <p class="wind-subtitle">
+
+            <span>T</span>
+            <span>h</span>
+            <span>e</span>
+
+            <span> </span>
+
+            <span>c</span>
+            <span>l</span>
+            <span>o</span>
+            <span>u</span>
+            <span>d</span>
+            <span>s</span>
+
+            <span> </span>
+
+            <span>k</span>
+            <span>e</span>
+            <span>e</span>
+            <span>p</span>
+
+            <span> </span>
+
+            <span>m</span>
+            <span>o</span>
+            <span>r</span>
+            <span>e</span>
+
+            <span> </span>
+
+            <span>t</span>
+            <span>h</span>
+            <span>a</span>
+            <span>n</span>
+
+            <span> </span>
+
+            <span>r</span>
+            <span>a</span>
+            <span>i</span>
+            <span>n</span>
+            <span>.</span>
+
+        </p>
+
 
         <button class="enter" onclick="enterSky()">
             ENTER THE SKY ☁
         </button>
 
+
     </div>
 
-    <script>
-        function enterSky() {
-            const welcome = document.querySelector(".welcome");
-            const wind = document.getElementById("windSound");
 
-            /* Start the sound just before the visual movement */
+    <script>
+
+        function enterSky() {
+
+            const welcome =
+                document.querySelector(".welcome");
+
+            const wind =
+                document.getElementById("windSound");
+
+
+            /* Start the whoosh slightly before the movement */
+
             wind.currentTime = 0;
-            wind.play().catch(error => console.log(error));
+
+            wind.play().catch(
+                error => console.log(error)
+            );
+
 
             setTimeout(() => {
+
                 welcome.classList.add("wind-blown");
-            }, 80);
+
+            }, 60);
+
         }
+
     </script>
+
 
 </body>
 
